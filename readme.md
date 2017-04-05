@@ -1,6 +1,6 @@
 # Getting MEAN application code
 
-This is the code for the'Hopper' application that is built with the guidance of Simon Hollme's book [Getting MEAN](https://www.manning.com/books/getting-mean-with-mongo-express-angular-and-node).
+This is the code for the 'Hopper' application that is built with the guidance of Simon Hollme's book [Getting MEAN](https://www.manning.com/books/getting-mean-with-mongo-express-angular-and-node).
 
 Getting MEAN is published by Manning, and teaches readers how to develop web applications end-to-end using the MEAN stack.
 
