@@ -1,151 +1,18 @@
 extends layout
 
 block content
-  #wrapper
-    // Header
-    header#header.alt
-      span.logo
-        img(src='/images/logo.png', alt='')
-      h1 Hopper
-      p
-        | Making it easier to find events in/around campus
-    // Nav
-    nav#nav
-      ul
-        li
-          a.active(href='#intro') Introduction
-        li
-          a(href='#first') First Section
-        li
-          a(href='#second') Second Section
-        li
-          a(href='#cta') Get Started
-    // Main
-    #main
-      // Introduction
-      section#intro.main
-        .spotlight
-          .content
-            header.major
-              h2 Ipsum sed adipiscing
-            p
-              | Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
-              | adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus.
-              | Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.
-            ul.actions
-              li
-                a.button(href='generic.html') Learn More
-          span.image
-            img(src='/images/pic01.jpg', alt='')
-      // First Section
-      section#first.main.special
-        header.major
-          h2 Magna veroeros
-        ul.features
-          li
-            span.icon.major.style1.fa-code
-            h3 Ipsum consequat
-            p
-              | Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.
-          li
-            span.icon.major.style3.fa-copy
-            h3 Amed sed feugiat
-            p
-              | Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.
-          li
-            span.icon.major.style5.fa-diamond
-            h3 Dolor nullam
-            p
-              | Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.
-        footer.major
-          ul.actions
-            li
-              a.button(href='generic.html') Learn More
-      // Second Section
-      section#second.main.special
-        header.major
-          h2 Ipsum consequat
-          p
-            | Donec imperdiet consequat consequat. Suspendisse feugiat congue
-            br
-            | 									posuere. Nulla massa urna, fermentum eget quam aliquet.
-        ul.statistics
-          li.style1
-            span.icon.fa-code-fork
-            strong 5,120
-            |  Etiam
-          li.style2
-            span.icon.fa-folder-open-o
-            strong 8,192
-            |  Magna
-          li.style3
-            span.icon.fa-signal
-            strong 2,048
-            |  Tempus
-          li.style4
-            span.icon.fa-laptop
-            strong 4,096
-            |  Aliquam
-          li.style5
-            span.icon.fa-diamond
-            strong 1,024
-            |  Nullam
-        p.content
-          | Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.
-        footer.major
-          ul.actions
-            li
-              a.button(href='generic.html') Learn More
-      // Get Started
-      section#cta.main.special
-        header.major
-          h2 Congue imperdiet
-          p
-            | Donec imperdiet consequat consequat. Suspendisse feugiat congue
-            br
-            | 									posuere. Nulla massa urna, fermentum eget quam aliquet.
-        footer.major
-          ul.actions
-            li
-              a.button.special(href='generic.html') Get Started
-            li
-              a.button(href='generic.html') Learn More
-    // Footer
-    footer#footer
-      section
-        h2 Aliquam sed mauris
-        p
-          | Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.
-        ul.actions
-          li
-            a.button(href='#') Learn More
-      section
-        h2 Etiam feugiat
-        dl.alt
-          dt Address
-          dd 1234 Somewhere Road • Nashville, TN 00000 • USA
-          dt Phone
-          dd (000) 000-0000 x 0000
-          dt Email
-          dd
-            a(href='#') information@untitled.tld
-        ul.icons
-          li
-            a.icon.fa-twitter.alt(href='#')
-              span.label Twitter
-          li
-            a.icon.fa-facebook.alt(href='#')
-              span.label Facebook
-          li
-            a.icon.fa-instagram.alt(href='#')
-              span.label Instagram
-          li
-            a.icon.fa-github.alt(href='#')
-              span.label GitHub
-          li
-            a.icon.fa-dribbble.alt(href='#')
-              span.label Dribbble
-      p.copyright
-        | © Untitled. Design: 
-        a(href='https://html5up.net') HTML5 UP
-        | .
+  .login
+    .login-screen
+      img(src='img/bunny.png', alt='Logo', width='30%', height='80%')
+      .app-title
+        h1 EventHopper
+        .login-form
+          .control-group
+            input#login-name.login-field(type='text', value='', placeholder='email@csulb.edu')
+            label.login-field-icon.fui-user(for='login-name')
+          .control-group
+            input#login-pass.login-field(type='password', value='', placeholder='password')
+            label.login-field-icon.fui-lock(for='login-pass')
+          a.login-link(href='recover.html') Forgot Password
+          a.btn.btn-primary.btn-large.btn-block(href='welcome.html') LOGIN
+          a.login-link(href='signUp.html') Don't have an account? Sign Up
