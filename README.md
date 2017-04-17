@@ -18,7 +18,7 @@ And finally install the dependencies:
 
 ## To run the application
 Make sure you have the following:
-- [Node (with npm)] (http://nodejs.org/download/)
+- [Node] (http://nodejs.org/download/)
 - [MongoDB] (http://docs.mongodb.org/manual/installation/)
 - Git
 - [Heroku CLI] (https://devcenter.heroku.com/articles/heroku-cli) (formerly Heroku Toolbelt)
