@@ -18,12 +18,12 @@ And finally install the dependencies:
 
 ## To run the application
 Make sure you have the following:
-  [Node] (http://nodejs.org/download/)
-  [MongoDB] (http://docs.mongodb.org/manual/installation/)
-  Git
-  [Heroku CLI] (https://devcenter.heroku.com/articles/heroku-cli) (formerly Heroku Toolbelt)
+- [Node](http://nodejs.org/download/)
+- [MongoDB](http://docs.mongodb.org/manual/installation/)
+- Git
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) (formerly Heroku Toolbelt)
 
-Please note that the book refers to using Heroku Foreman - that's obsolete. See [this] (https://devcenter.heroku.com/changelog-items/692) article. If you're using a Windows machine and want to use git as you would on a UNIX machine, I recommend installing GitBash.
+Please note that the book refers to using Heroku Foreman - that's obsolete. See [this](https://devcenter.heroku.com/changelog-items/692) article. If you're using a Windows machine and want to use git as you would on a UNIX machine, I recommend installing [GitBash](https://git-for-windows.github.io/).
 
 ## Check out the app
 Visit [our app] (https://eventhopper.herokuapp.com/)
