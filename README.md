@@ -1,12 +1,12 @@
 # EventHopper Application Code
 
-This is the code for the 'Hopper' application. It is built with the guidance of Simon Hollme's book [Getting MEAN](https://www.manning.com/books/getting-mean-with-mongo-express-angular-and-node).
+This is the code for the 'Hopper' application. It is built with the guidance of Simon Holme's book [Getting MEAN](https://www.manning.com/books/getting-mean-with-mongo-express-angular-and-node).
 
 ## Get the code
 
-To get the code for a specific branch:
+To get the code:
 
-`$ git clone -b branch-name https://github.com/brukeGo/hopper.git`
+`$ git clone https://github.com/terabytes/hopper.git`
 
 Then change into the folder the git clone command will create:
 
@@ -15,3 +15,15 @@ Then change into the folder the git clone command will create:
 And finally install the dependencies:
 
 `npm install`
+
+## To run the application
+Make sure you have the following:
+- Node (with npm): [http://nodejs.org/download/] (http://nodejs.org/download/)
+- MongoDB: [http://docs.mongodb.org/manual/installation/] (http://docs.mongodb.org/manual/installation/)
+- Git
+- Heroku CLI (formerly Heroku Toolbelt): [https://devcenter.heroku.com/articles/heroku-cli] (https://devcenter.heroku.com/articles/heroku-cli)
+
+Please note that the book refers to using Heroku Foreman - that's obsolete. See [this] (https://devcenter.heroku.com/changelog-items/692) article. If you're using a Windows machine and want to use git as you would on a UNIX machine, I recommend installing GitBash.
+
+## Check out the app
+Visit [our app] (https://eventhopper.herokuapp.com/)
