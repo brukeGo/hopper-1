@@ -1,0 +1,24 @@
+extends layout
+
+block content
+.nav-bar
+  .dropdown
+  img.dropbtn(src='img/menu-icon.png', onclick='myFunction()', alt='back to previous', style='width:42px;height:42px;border:0;')
+    #myDropdown.dropdown-content
+    a(href='account.html') Account
+    a(href='history.html') Event History
+    a(href='likes.html') Likes
+  a(href='viewEvent.html')
+  img(src='img/back.png', alt='back to previous', style='width:42px;height:42px;border:0;')
+.login
+  .login-screen
+    .app-title
+    h1 Recover
+    .login-form
+    h2 Forgot Password?
+    h5
+    | Please enter your email below. If there is an acount in our records we will send you your password.
+      .control-group
+      input#login-name.login-field(type='text', value='', placeholder='email@csulb.edu')
+      label.login-field-icon.fui-user(for='login-name')
+    a.btn.btn-primary.btn-large.btn-block(href='login.html') SEND EMAIL
