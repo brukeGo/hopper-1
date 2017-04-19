@@ -1,18 +1,18 @@
 extends layout
 
 block content
-  .login
-    .login-screen
-      img(src='img/bunny.png', alt='Logo', width='30%', height='80%')
-      .app-title
-        h1 EventHopper
-        .login-form
-          .control-group
-            input#login-name.login-field(type='text', value='', placeholder='email@csulb.edu')
-            label.login-field-icon.fui-user(for='login-name')
-          .control-group
-            input#login-pass.login-field(type='password', value='', placeholder='password')
-            label.login-field-icon.fui-lock(for='login-pass')
-          a.login-link(href='recover.html') Forgot Password
-          a.btn.btn-primary.btn-large.btn-block(href='welcome.html') LOGIN
-          a.login-link(href='signUp.html') Don't have an account? Sign Up
+  .container
+    .card.card-container
+      img(src='img/bunny.png', alt='logo', width='100', height='100')
+      p#profile-name.profile-name-card Event Hopper
+      form.form-signin
+        span#reauth-email.reauth-email
+        input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+        input#inputPassword.form-control(type='password', placeholder='Password', required='')
+        #remember.checkbox
+          label
+            input(type='checkbox', value='remember-me')
+            h7 Remember
+        button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') SIGN IN
+      a.forgot-password(href='recover') Forgot password? 
+      a.forgot-password(href='register') Sign up

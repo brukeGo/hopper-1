@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .nav-bar
+    .dropdown
+      img.dropbtn(src='img/menu-icon.png', onclick='myFunction()', alt='back to previous', style='width:42px;height:42px;border:0;')
+      #myDropdown.dropdown-content
+        a(href='account.html') Account
+        a(href='history.html') Event History
+        a(href='likes.html') Likes
+    a(href='login.html')
+      img(src='img/back.png', alt='back to previous', style='width:42px;height:42px;border:0;')
+  .login
+    .login-screen
+      .app-title
+        h1 Welcome
+      .login-form
+        h4 What would you like to do?
+        a.btn.btn-primary.btn-large.btn-block(href='findEvent.html') FIND EVENT
+        a.btn.btn-primary.btn-large.btn-block(href='createEvent.html') CREATE EVENT
+        a.btn.btn-primary.btn-large.btn-block(href='login.html') SIGN OUT
