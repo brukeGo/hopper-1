@@ -135,6 +135,10 @@ img {
 	margin-top: 30px;
 }
 
+.event-form .form-control {
+	margin-top: 10px;
+}
+
 .btn.btn-signin:hover,
 .btn.btn-signin:active,
 .btn.btn-signin:focus {
