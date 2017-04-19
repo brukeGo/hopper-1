@@ -19,3 +19,7 @@ module.exports.index = function(req, res) {
   */
   res.render('index', { title: 'Hopper' });
 }
+
+module.exports.welcome = function (req, res) {
+  res.render('welcome', { title: 'Welcome' });
+}

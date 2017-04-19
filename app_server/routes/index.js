@@ -13,5 +13,5 @@ var ctrlMain = require('../controllers/main');
 
 /* GET home page. */
 router.get('/', ctrlMain.index); // Reference index method of ctrlMain controller in this route definition
-
+router.get('/welcome', ctrlMain.welcome);
 module.exports = router;
