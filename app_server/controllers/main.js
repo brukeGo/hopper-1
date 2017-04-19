@@ -23,3 +23,7 @@ module.exports.index = function(req, res) {
 module.exports.welcome = function (req, res) {
   res.render('welcome', { title: 'Welcome' });
 }
+
+module.exports.createevent = function (req, res) {
+  res.render('createevent', { title: 'Create Event' });
+}

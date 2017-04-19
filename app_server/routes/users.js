@@ -10,4 +10,8 @@ router.get('/welcome', function(req, res) {
   res.send('this is the welcome page');
 });
 
+router.get('/createevent', function(req, res) {
+  res.send('this is event creation page');
+});
+
 module.exports = router;
