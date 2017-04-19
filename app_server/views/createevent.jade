@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container
+    .card.card-container
+      img(src='img/bunny.png', alt='logo', width='100', height='100')
+      p#profile-name.profile-name-card Create Event
+      form.form-signin(action='viewevent')
+        .event-form
+          input#inputEventName.form-control(type='text', placeholder='event name', required='', autofocus='')
+          input#inputEventDate.form-control(type='date', placeholder='event date', required='')
+          input#inputEventLocation.form-control(type='text', placeholder='event location', required='')
+          input#inputEventTime.form-control(type='time', placeholder='event time', required='')
+          input#inputEventDescription.form-control(type='text', placeholder='event description', required='')
+          input#inputImage.form-control(type='file', placeholder='upload image', optional='')
+          input#inputKeywords.form-control(type='text', placeholder='keywords', optional='')
+          a(href='/createevent')
+            button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='button') VIEW EVENT
