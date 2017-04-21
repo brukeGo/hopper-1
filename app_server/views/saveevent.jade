@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .container
+    .card.card-container
+      a(href='welcome')
+        img(src='img/bunny.png', alt='logo', width='90', height='90')
+	    p#profile-name.profile-name-card Event Saved
+       .savedView
+         h2 Success!
+         p
+           h4
+             | Your event has been saved as a draft. To edit the event, view, or post the event go to your user settings and select my events.
+         a.btn.btn-info(href='login', role='button') SIGN OUT
+		 br
