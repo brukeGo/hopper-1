@@ -1,0 +1,62 @@
+extends layout
+
+block content
+  .container
+    .card.card-container
+      a(href='welcome')
+        img(src='img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card Filter Events
+      form.form-check(action='listall')
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | All
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Alumni
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Education
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Education
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Free
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Groups
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Off Campus
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | On Campus
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Staff
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Students
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Sports
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Today
+        .checkbox
+          label
+            input(type='checkbox', value='')
+            | Upcoming
+        button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') FIND EVENTS
