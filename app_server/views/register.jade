@@ -3,16 +3,14 @@ extends layout
 block content
   .container
     .card.card-container
-      a(href='login')
+      a(href='login.html')
         img(src='img/bunny.png', alt='logo', width='90', height='90')
-      p#profile-name.profile-name-card Recovery
-      .savedView
-        h2 Forgot your password?
-        p
+      p#profile-name.profile-name-card Create Account
+      .account
         h5
-          | Please enter your email in the field below. If there is an account in our records linked to that email address, we will send your password there.
-        p
+          | Please enter your email in the field below. You will recieve a verification email to confirm your account.
       form.form-signin(method='post', action='login')
         span#reauth-email.reauth-email
         input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+        input#inputPassword.form-control(type='password', placeholder='Password', required='')
         button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') SEND EMAIL
