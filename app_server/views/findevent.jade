@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .container
+    .card.card-container
+      a(href='welcome')
+        img(src='img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card Find Event
+      .welcome
+        a.btn.btn-info(href='filter', role='button') BY CATEGORY
+        br
+        a.btn.btn-info(href='keywordsearch', role='button') BY KEYWORDS
+        br
+        a.btn.btn-info(href='listevents', role='button') VIEW ALL
+        br

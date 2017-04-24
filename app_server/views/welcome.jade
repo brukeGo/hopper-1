@@ -2,12 +2,13 @@ extends layout
 
 block content
   .container
-  .card.card-container
-    img(src='img/bunny.png', alt='logo', width='100', height='100')
-    p#profile-name.profile-name-card Welcome
-    form.form-signin
+    .card.card-container
+      img(src='img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card Welcome
       .welcome
-        button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') FIND EVENT
-        a(href="createevent")
-         button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='button') CREATE EVENT
-        button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') SIGN OUT
+        a.btn.btn-info(href='findevent', role='button') FIND EVENT
+        br
+        a.btn.btn-info(href='createevent', role='button') CREATE EVENT
+        br
+        a.btn.btn-info(href='login', role='button') SIGN OUT
+        br
