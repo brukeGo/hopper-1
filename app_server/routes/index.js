@@ -13,18 +13,19 @@ var ctrlMain = require('../controllers/main');
 
 /* GET home page. */
 router.get('/', ctrlMain.index); // Reference index method of ctrlMain controller in this route definition
-
 router.get('/welcome', ctrlMain.welcome);
 router.get('/createevent', ctrlMain.createEvent);
-
-/*Comment by Ale:
-Once you get the thing running on your local host, you'll
-be able to load different URLs by typing stuff like "localhost:3000/createEvent" in the URL bar for the future
-create events page. At the time of writing, you'll see the login page but with different URLs.
-*/
-router.get('/postEvent', ctrlMain.postEvent);
-router.get('/saveEvent', ctrlMain.saveEvent);
+router.get('/postevent', ctrlMain.postEvent);
+router.get('/saveevent', ctrlMain.saveEvent);
 router.get('/recover', ctrlMain.recover);
-router.get('/signUp', ctrlMain.signUp);
+router.get('/event', ctrlMain.event);
+router.get('/filtercat', ctrlMain.filterCat);
+router.get('/filterselect', ctrlMain.filterSelect);
+router.get('/findevent', ctrlMain.findEvent);
+router.get('/keywordsearch', ctrlMain.keywordSearch);
+router.get('/listall', ctrlMain.listAll);
+router.get('/register', ctrlMain.register);
+router.get('/viewevent', ctrlMain.viewEvent);
+
 
 module.exports = router;
