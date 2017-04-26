@@ -5,18 +5,9 @@ block content
     .card.card-container
       a(href='/welcome')
         img(src='img/bunny.png', alt='logo', width='90', height='90')
-      p#profile-name.profile-name-card Filter Events
+      p#profile-name.profile-name-card #{title}
       .all
         ul.nav
-          li
-            a(href='/event') Movie Night
-          li
-            a(href='/event') Casino Night
-          li
-            a(href='/event') Grad Festival
-          li
-            a(href='/event') Alumni Lunch
-          li
-            a(href='/event') Speed Dating
-          li
-            a(href='/event') SWE Bonfire
+          each event in eventsList
+           li
+             a(href='/event') #{event.title}

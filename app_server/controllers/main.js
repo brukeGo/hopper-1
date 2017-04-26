@@ -37,7 +37,9 @@ res.render('recover', {title: 'Recover'});
 }
 
 module.exports.event = function(req, res) {
-res.render('event', {title: 'Event'});
+res.render('event', {event: {title: 'Movie Night', date:'04/23/2017',
+time: '5:30 PM', location:'USU Ballroom 1', 
+description:'Come enjoy classic films while meeting new people who share your interests. Free snacks.'}});
 }
 
 module.exports.filterCat = function(req, res) {
@@ -57,7 +59,9 @@ res.render('keywordsearch', {title: 'Keyword Search'});
 }
 
 module.exports.listAll = function(req, res) {
-res.render('listall', {title: 'List All'});
+res.render('listall', {title: 'List All', eventsList: [{title:'Movie Night'}, 
+{title:'Casino Night'}, {title:'Grad Festival'}, {title:'Alumni Lunch'}, 
+{title:'Speed Dating'}, {title: 'SWE Bonfire'}]});
 }
 
 module.exports.postEvent = function(req, res) {
@@ -71,13 +75,4 @@ res.render('saveevent', {title: 'Save Event'});
 module.exports.viewEvent = function(req, res) {
 res.render('viewevent', {title: 'View Event'});
 }
-
-
-/* Comment by Ale:
-The index.jade file at the time of writing currently displays the
-login page so all the pages below this comment show the login page. 
-Once the other jade files are finished, please change 'index' to the 
-correct jade file.
-@Tera:Also, we'll organize these controllers later.
-*/
 
