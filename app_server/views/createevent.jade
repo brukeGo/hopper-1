@@ -7,7 +7,7 @@ block content
         img(src='img/bunny.png', alt='logo', width='90', height='90')
         a
         p#profile-name.profile-name-card Create Event
-        form.form-signin(method='post', action='viewevent')
+        form.form-signin(action='/viewevent')
           .event-form
             input#inputEventName.form-control(type='text', placeholder='event name', required='', autofocus='')
             input#inputEventDate.form-control(type='date', placeholder='event date', required='')
