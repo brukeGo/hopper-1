@@ -3,7 +3,7 @@ extends layout
 block content
   .container
     .card.card-container
-      a(href='welcome')
+      a(href='/welcome')
         img(src='img/bunny.png', alt='logo', width='90', height='90')
       p#profile-name.profile-name-card Event Posted
       .savedView
@@ -11,5 +11,5 @@ block content
         p
         h4
           | Congradulations. Your event has been posted. To view the stats or edit this event go to your user settings and select my events.
-      a.btn.btn-info(href='login', role='button') SIGN OUT
+      a.btn.btn-info(href='/', role='button') SIGN OUT
       br
