@@ -5,7 +5,7 @@ block content
     .card.card-container
       img(src='img/bunny.png', alt='logo', width='90', height='90')
       p#profile-name.profile-name-card Event Hopper
-      form.form-signin(method='post', action='welcome')
+      form.form-signin(action='/welcome')
         span#reauth-email.reauth-email
         input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
         input#inputPassword.form-control(type='password', placeholder='Password', required='')
@@ -14,6 +14,6 @@ block content
             input(type='checkbox', value='remember-me')
             |  Remember me
         button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') SIGN IN
-      a.forgot-password(href='recover') Forgot password?
-      a.forgot-password(href='register')  Sign up
+      a.forgot-password(href='/recover') Forgot password?
+      a.forgot-password(href='/register')  Sign up
 

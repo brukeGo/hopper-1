@@ -28,13 +28,50 @@ module.exports.createEvent = function (req, res) {
   res.render('createevent', { title: 'Create Event' });
 }
 
-module.exports.signUp = function(req, res) {
-res.render('signup', {title: 'Register'});
+module.exports.register = function(req, res) {
+res.render('register', {title: 'Register'});
 }
 
 module.exports.recover = function(req, res) {
-res.render('recover', {title: 'Recover Password'});
+res.render('recover', {title: 'Recover'});
 }
+
+module.exports.event = function(req, res) {
+res.render('event', {title: 'Event'});
+}
+
+module.exports.filterCat = function(req, res) {
+res.render('filtercat', {title: 'Filter Category'});
+}
+
+module.exports.filterSelect = function(req, res) {
+res.render('filterselect', {title: 'Filter Select'});
+}
+
+module.exports.findEvent = function(req, res) {
+res.render('findevent', {title: 'Find Event'});
+}
+
+module.exports.keywordSearch = function(req, res) {
+res.render('keywordsearch', {title: 'Keyword Search'});
+}
+
+module.exports.listAll = function(req, res) {
+res.render('listall', {title: 'List All'});
+}
+
+module.exports.postEvent = function(req, res) {
+res.render('postevent', {title: 'Post Event'});
+}
+
+module.exports.saveEvent = function(req, res) {
+res.render('saveevent', {title: 'Save Event'});
+}
+
+module.exports.viewEvent = function(req, res) {
+res.render('viewevent', {title: 'View Event'});
+}
+
 
 /* Comment by Ale:
 The index.jade file at the time of writing currently displays the
@@ -43,9 +80,4 @@ Once the other jade files are finished, please change 'index' to the
 correct jade file.
 @Tera:Also, we'll organize these controllers later.
 */
-module.exports.postEvent = function(req, res) {
-res.render('createevent', {title: 'Post Event'});
-}
-module.exports.saveEvent = function(req, res) {
-res.render('index', {title: 'Save Event'});
-}
+
