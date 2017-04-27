@@ -11,6 +11,8 @@ block content
           | Please enter your email in the field below. You will recieve a verification email to confirm your account.
       form.form-signin(action='/')
         span#reauth-email.reauth-email
-        input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+		input#inputFirstName.form-control(type='text', placeholder='First Name', required='', autofocus='')
+		input#inputLastName.form-control(type='text', placeholder='Last Name', required='')
+        input#inputEmail.form-control(type='email', placeholder='Email address', required='')
         input#inputPassword.form-control(type='password', placeholder='Password', required='')
         button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') SEND EMAIL
