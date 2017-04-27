@@ -12,20 +12,22 @@ var router = express.Router();
 var ctrlMain = require('../controllers/main');
 
 /* GET home page. */
-router.get('/', ctrlMain.index); // Reference index method of ctrlMain controller in this route definition
-router.get('/welcome', ctrlMain.welcome);
-router.get('/createevent', ctrlMain.createEvent);
-router.get('/postevent', ctrlMain.postEvent);
-router.get('/saveevent', ctrlMain.saveEvent);
-router.get('/recover', ctrlMain.recover);
+router.get('/', ctrlMain.login); // Reference index method of ctrlMain controller in this route definition
+router.get('/welcome', ctrlMain.mainMenu);
 router.get('/event', ctrlMain.event);
-router.get('/filtercat', ctrlMain.filterCat);
-router.get('/filterselect', ctrlMain.filterSelect);
-router.get('/findevent', ctrlMain.findEvent);
-router.get('/keywordsearch', ctrlMain.keywordSearch);
-router.get('/listall', ctrlMain.listAll);
+router.get('/event/new', ctrlMain.createEvent);
+router.get('/event/draft', ctrlMain.eventDraft);
+router.get('/event/saved', ctrlMain.eventSaved);
+router.get('/event/posted', ctrlMain.eventPosted);
+router.get('/events', ctrlMain.events);
+router.get('/events/finder', ctrlMain.eventFinder);
+router.get('/events/search', ctrlMain.searchEvents);
+router.get('/events/filter', ctrlMain.filterEvents);
+router.get('/events/my', ctrlMain.myEvents);
+router.get('/events/my/edit', ctrlMain.myEventsEdit);
+router.get('/events/my/liked', ctrlMain.myLikedEvents);
+router.get('/recover', ctrlMain.recover);
 router.get('/register', ctrlMain.register);
-router.get('/viewevent', ctrlMain.viewEvent);
-
+router.get('/account', ctrlMain.account); // need to add view for this (user-menu)
 
 module.exports = router;
