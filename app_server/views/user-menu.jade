@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .container
+    .card.card-container
+      a(href='welcome.html')
+        img(src='img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card Menu
+      .welcome
+        a.btn.btn-info(href='editUser.html', role='button') ACCOUNT INFO
+        br
+        a.btn.btn-info(href='listHistory.html', role='button') MY EVENT HISTORY
+        br
+        a.btn.btn-info(href='listLikes.html', role='button') MY LIKES
+        br
+        a.btn.btn-info(href='login.html', role='button') SIGN OUT
+        br
