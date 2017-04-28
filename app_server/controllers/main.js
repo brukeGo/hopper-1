@@ -66,38 +66,46 @@ module.exports.events = function(req, res) {
 }
 
 module.exports.eventFinder = function(req, res) {
-res.render('event-finder', {title: 'Find Event'});
+  res.render('event-finder', {title: 'Find Event'});
 }
 
 module.exports.searchEvents = function(req, res) {
-res.render('search-events', {title: 'Keyword Search'});
+  res.render('search-events', {title: 'Keyword Search'});
 }
 
 module.exports.filterEvents = function(req, res) {
-res.render('filter-events', {title: 'Filter Events'});
+  res.render('filter-events', {title: 'Filter Events'});
 }
 
 module.exports.myEvents = function(req, res) {
-res.render('events', {title: 'My Events'});
+  res.render('events',
+    { title: 'My Events',
+      eventsList: [ { title:'Movie Night'}, 
+                    { title:'Casino Night'}]
+    });
 }
 
 module.exports.myEventsEdit = function(req, res) {
-res.render('event-form', {title: 'Edit Event'});
+  res.render('event-form', {title: 'Edit Event'});
 }
 
 module.exports.myLikedEvents = function(req, res) {
-res.render('events', {title: 'Liked Events'});
+  res.render('events',
+    { title: 'Liked Events',
+      eventsList: [ { title:'Speed Dating' },
+                    { title: 'SWE Bonfire' }]
+    });
 }
 
 module.exports.register = function(req, res) {
-res.render('register', {title: 'Register'});
+  res.render('register', {title: 'Register'});
 }
 
 module.exports.recover = function(req, res) {
-res.render('recover', {title: 'Recover'});
+  res.render('recover', {title: 'Recover'});
 }
 
 module.exports.account = function(req, res) {
-res.render('account', {title: 'User Menu'});
+  res.render('user-menu', {title: 'User Menu'});
 }
 
