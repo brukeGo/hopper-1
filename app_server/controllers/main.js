@@ -4,7 +4,7 @@
     Example:  Render views, make API calls then render view, etc.
 */
 
-module.exports.index = function(req, res) {
+module.exports.login = function(req, res) {
   /*
     Understanding res.render:
       - render is the Express function for compiling a view
