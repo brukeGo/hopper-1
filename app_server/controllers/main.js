@@ -18,7 +18,7 @@ module.exports.login = function(req, res) {
         - index: name of template file to use -- references index.jade
         - { title: 'Hopper' }: JavaScript object containing data for template
   */
-  res.render('login', { title: 'Hopper' });
+  res.render('login', { title: 'Event Hopper' });
 }
 
 module.exports.mainMenu = function (req, res) {
@@ -42,7 +42,16 @@ module.exports.createEvent = function (req, res) {
 }
 
 module.exports.eventDraft = function (req, res) {
-  res.render('event-draft', { title: 'Draft' });
+  res.render('event-draft', 
+    { title: 'Draft',
+      event:
+      { title: 'Movie Night',
+        date:'04/23/2017',
+        time: '5:30 PM',
+        location:'USU Ballroom 1', 
+        description:'Come enjoy classic films while meeting new people who share your interests. Free snacks.'
+      }
+    });
 }
 
 module.exports.eventSaved = function (req, res) {
