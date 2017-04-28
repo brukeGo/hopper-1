@@ -24,8 +24,10 @@ module.exports.mainMenu = function (req, res) {
   res.render('main-menu', { title: 'Welcome' });
 }
 
-module.exports.event = function (req, res) {
-  res.render('event', { title: 'Event' });
+module.exports.event = function(req, res) {
+res.render('event', { event: {title: 'Movie Night', date:'04/23/2017',
+time: '5:30 PM', location:'USU Ballroom 1', 
+description:'Come enjoy classic films while meeting new people who share your interests. Free snacks.'}});
 }
 
 module.exports.createEvent = function (req, res) {
@@ -40,19 +42,14 @@ module.exports.eventSaved = function (req, res) {
   res.render('event-saved', { title: 'Saved' });
 }
 
-<<<<<<< HEAD
-module.exports.event = function(req, res) {
-res.render('event', {event: {title: 'Movie Night', date:'04/23/2017',
-time: '5:30 PM', location:'USU Ballroom 1', 
-description:'Come enjoy classic films while meeting new people who share your interests. Free snacks.'}});
-=======
 module.exports.eventPosted = function (req, res) {
   res.render('event-posted', { title: 'Posted' });
->>>>>>> 139ea5a7587641a5b055bbf7993b2459ba9c4b57
 }
 
 module.exports.events = function(req, res) {
-res.render('events', {title: 'Events'});
+res.render('events', {title: 'List All', eventsList: [{title:'Movie Night'}, 
+{title:'Casino Night'}, {title:'Grad Festival'}, {title:'Alumni Lunch'}, 
+{title:'Speed Dating'}, {title: 'SWE Bonfire'}]});
 }
 
 module.exports.eventFinder = function(req, res) {
@@ -67,15 +64,8 @@ module.exports.filterEvents = function(req, res) {
 res.render('filter-events', {title: 'Filter Events'});
 }
 
-<<<<<<< HEAD
-module.exports.listAll = function(req, res) {
-res.render('listall', {title: 'List All', eventsList: [{title:'Movie Night'}, 
-{title:'Casino Night'}, {title:'Grad Festival'}, {title:'Alumni Lunch'}, 
-{title:'Speed Dating'}, {title: 'SWE Bonfire'}]});
-=======
 module.exports.myEvents = function(req, res) {
 res.render('events', {title: 'My Events'});
->>>>>>> 139ea5a7587641a5b055bbf7993b2459ba9c4b57
 }
 
 module.exports.myEventsEdit = function(req, res) {
@@ -98,8 +88,3 @@ module.exports.account = function(req, res) {
 res.render('account', {title: 'User Menu'});
 }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 139ea5a7587641a5b055bbf7993b2459ba9c4b57
