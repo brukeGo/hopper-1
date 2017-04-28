@@ -3,12 +3,15 @@ extends layout
 block content
   .container
     .card.card-container
+      .menu
+        a.pull-right(href='/user-menu')
+          span.glyphicon.glyphicon-menu-hamburger
       img(src='img/bunny.png', alt='logo', width='90', height='90')
       p#profile-name.profile-name-card Welcome
       .welcome
-        a.btn.btn-info(href='/findevent', role='button') FIND EVENT
+        a.btn.btn-info(href='/event-finder', role='button') FIND EVENT
         br
-        a.btn.btn-info(href='/createevent', role='button') CREATE EVENT
+        a.btn.btn-info(href='/event-form', role='button') CREATE EVENT
         br
-        a.btn.btn-info(href='/', role='button') SIGN OUT
+        a.btn.btn-info(href='/login', role='button') SIGN OUT
         br

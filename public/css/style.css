@@ -27,6 +27,22 @@ img {
     padding: 40px 40px;
 }
 
+.menu{
+	margin-bottom: 50px;
+}
+
+.menu a{
+	color: black;
+}
+
+.menu a:hover{
+	color: rgb(17, 145, 173);
+}
+
+.menu .glyphicon {
+    font-size: 1.8em;
+}
+
 .account{
 	text-align: center;
 	padding: 10px 0 10px 0;
@@ -208,13 +224,17 @@ img {
 	background-color: rgb(17, 145, 173);
 }
 
-.left{
+.left, .left-dislike{
 	float: left;
 }
 
-.right{
+.right, .right-like{
 	float: right;
 }
+.right-like .btn, .right-like .btn:hover{
+	color: red;
+}
+
 
 .event{
 	margin: 20px;
