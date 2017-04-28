@@ -3,10 +3,10 @@ extends layout
 block content
   .container
   .card.card-container
-    a(href='/welcome')
+    a(href='/main-menu')
       img(src='img/bunny.png', alt='logo', width='90', height='90')
     p#profile-name.profile-name-card Filter Events
-    form#custom-search-form.form-search.form-horizontal.pull-center(action='/listall')
+    form#custom-search-form.form-search.form-horizontal.pull-center(action='/events')
       input.search-query(type='text', placeholder='Search by keywords')
       button.btn(type='submit')
         span.glyphicon.glyphicon-search
