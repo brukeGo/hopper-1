@@ -3,21 +3,21 @@ extends layout
 block content
   .container
     .card.card-container
-      p#profile-name.profile-name-card Movie Night
+      p#profile-name.profile-name-card #{event.title}
       .viewDraft
         img(src='/img/movie-flyer.jpg', alt='flyer', width='100%', height='100%')
         p
         h4 DATE:
-        h5  04/23/2017
+        h5  #{event.date}
         br
         h4 TIME:
-        h5  5:30 PM
+        h5  #{event.time}
         br
         h4 LOCATION:
-        h5  USU Ballroom 1
+        h5  #{event.location}
         br
         h5
-          | Come enjoy classic films while meeting new people who share your interests. Free snacks.
+          | #{event.description}
         br
         p
 
