@@ -120,7 +120,8 @@ module.exports.likedEvents = function(req, res) {
   res.render('events',
     { title: 'Liked Events',
       eventsList: [ { title:'Speed Dating' },
-                    { title: 'SWE Bonfire' }]
+                    { title: 'SWE Bonfire' }],
+      link: "/event"
     });
 }
 
