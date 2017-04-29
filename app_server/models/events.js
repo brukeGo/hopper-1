@@ -1,5 +1,6 @@
 var mongoose = require( 'mongoose' );
 
+/*
 var eventSchema = new mongoose.Schema({
   title: {type: String, required: true},
   img: {data: Buffer, contentType}, 
@@ -13,3 +14,4 @@ var eventSchema = new mongoose.Schema({
 });
 
 mongoose.model('Event', eventSchema);
+*/
