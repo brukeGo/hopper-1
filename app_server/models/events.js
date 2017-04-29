@@ -1,2 +1,2 @@
 var mongoose = require( 'mongoose' );
-var locationSchema = new mongoose.Schema({ });
+var eventSchema = new mongoose.Schema({ });
