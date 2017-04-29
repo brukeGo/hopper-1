@@ -38,20 +38,33 @@ module.exports.event = function(req, res) {
 }
 
 module.exports.createEvent = function (req, res) {
-  res.render('event-form', { title: 'Create Event' });
+  res.render('event-form', 
+    { title: 'Create Event',
+      link: "/event/saved"
+  });
 }
 
 module.exports.eventDraft = function (req, res) {
   res.render('event-draft', 
     { title: 'Draft',
-      event:
-      { title: 'Movie Night',
+      links: [
+        { title: "Edit",
+          link: "/event/edit" 
+        },
+        { title: "Delete",
+          link: "/event/delete" 
+        },
+        { title: "Post",
+          link: "/event/posted" 
+        }
+      ],
+      event: { title: 'Movie Night',
         date:'04/23/2017',
         time: '5:30 PM',
         location:'USU Ballroom 1', 
         description:'Come enjoy classic films while meeting new people who share your interests. Free snacks.'
       }
-    });
+  });
 }
 
 module.exports.eventSaved = function (req, res) {
@@ -64,13 +77,14 @@ module.exports.eventPosted = function (req, res) {
 
 module.exports.events = function(req, res) {
   res.render('events',
-    { title: 'List All',
+    { title: 'All Events',
       eventsList: [ { title:'Movie Night'}, 
                     { title:'Casino Night'}, 
-                    {title:'Grad Festival'},
-                    {title:'Alumni Lunch'}, 
-                    {title:'Speed Dating'},
-                    {title: 'SWE Bonfire'}]
+                    { title:'Grad Festival'},
+                    { title:'Alumni Lunch'}, 
+                    { title:'Speed Dating'},
+                    { title: 'SWE Bonfire'}],
+      link: "/event"
     });
 }
 
@@ -90,15 +104,19 @@ module.exports.myEvents = function(req, res) {
   res.render('events',
     { title: 'My Events',
       eventsList: [ { title:'Movie Night'}, 
-                    { title:'Casino Night'}]
+                    { title:'Casino Night'}],
+      link: "/event/draft"
     });
 }
 
-module.exports.myEventsEdit = function(req, res) {
-  res.render('event-form', {title: 'Edit Event'});
+module.exports.editEvent = function(req, res) {
+  res.render('event-form', 
+    { title: 'Edit Event',
+      link: "/event/saved"
+  });
 }
 
-module.exports.myLikedEvents = function(req, res) {
+module.exports.likedEvents = function(req, res) {
   res.render('events',
     { title: 'Liked Events',
       eventsList: [ { title:'Speed Dating' },
