@@ -1,9 +1,12 @@
 var mongoose = require('mongoose');
 
 // Use the prod URI unless it is local
-var dbURI = process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/hopper';
+var dbURI = 'mongodb://127.0.0.1:27017/hopper';
 
-var portNum = process.env.PORT || 27017;
+// Use prod URI if the NODE_ENV is prod
+if(process.env.NODE_ENV === 'production') {
+  dbURI = process.env.MONGOLAB_URI;
+}
 
 mongoose.connect(dbURI, function (err, res) {
   if(err) {
