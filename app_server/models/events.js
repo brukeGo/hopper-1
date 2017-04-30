@@ -1,4 +1,5 @@
 var mongoose = require( 'mongoose' );
+
 var eventSchema = new mongoose.Schema({
   title: { type: String, required: true },
   img: { data: Buffer, contentType: String }, 
@@ -10,3 +11,4 @@ var eventSchema = new mongoose.Schema({
   posted: { type: Boolean, "default": false },
   repeat: { repeat_every: Number, basis: String, occurences: Number}
 });
+
