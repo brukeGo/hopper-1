@@ -1,6 +1,13 @@
 var mongoose = require('mongoose');
 
-var dbURI = 'mongodb://127.0.0.1:27017/test';
+// Assume the NODE ENV is local
+var dbURI = 'mongodb://127.0.0.1:27017/hopper';
+
+// Use prod URI if the NODE_ENV is prod
+if(process.env.NODE_ENV === 'production') {
+  dbURI = process.env.MONGOLAB_URI;
+}
+
 mongoose.connect(dbURI);
 
 /*Line 7 - 22: Event Listeners*/
