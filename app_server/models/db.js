@@ -1,14 +1,17 @@
 var mongoose = require('mongoose');
 
-// Assume the NODE ENV is local
-var dbURI = 'mongodb://127.0.0.1:27017/hopper';
+// Use the prod URI unless it is local
+var dbURI = process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/hopper';
 
-// Use prod URI if the NODE_ENV is prod
-if(process.env.NODE_ENV === 'production') {
-  dbURI = process.env.MONGOLAB_URI;
-}
+var portNum = process.env.PORT || 27017;
 
-mongoose.connect(dbURI);
+mongoose.connect(dbURI, function (err, res) {
+  if(err) {
+    console.log('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log('Successful connection to: ' + uristring);
+  }
+});
 
 /*Line 7 - 22: Event Listeners*/
 mongoose.connection.on('connected', function() {
