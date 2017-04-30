@@ -5,7 +5,7 @@ var dbURI = 'mongodb://127.0.0.1:27017/hopper';
 
 // Use prod URI if the NODE_ENV is prod
 if(process.env.NODE_ENV === 'production') {
-  dbURI = process.env.MONGOLAB_URI;
+  dbURI = process.env.MONGODB_URI;
 }
 
 mongoose.connect(dbURI, function (err, res) {
