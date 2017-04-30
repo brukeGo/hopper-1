@@ -7,9 +7,9 @@ var portNum = process.env.PORT || 27017;
 
 mongoose.connect(dbURI, function (err, res) {
   if(err) {
-    console.log('ERROR connecting to: ' + uristring + '. ' + err);
+    console.log('ERROR connecting to: ' + dbURI + '. ' + err);
   } else {
-    console.log('Successful connection to: ' + uristring);
+    console.log('Successful connection to: ' + dbURI);
   }
 });
 
