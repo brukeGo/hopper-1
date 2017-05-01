@@ -12,3 +12,4 @@ var eventSchema = new mongoose.Schema({
   repeat: { repeat_every: Number, basis: String, occurences: Number}
 });
 
+mongoose.model('Event', eventSchema);
