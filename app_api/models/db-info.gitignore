@@ -28,3 +28,6 @@ Connect to live db from mongo shell:
 This command follows the format of mongo hostname:port/database_name -u username -p password
 
     mongo ds125481.mlab.com:25481/heroku_9tj01b1q -u heroku_9tj01b1q -p 8p75vfvpuvsm9eog0eua2hdklq
+
+Drop All Documents from Event Collection
+    db.events.remove({});
