@@ -1,22 +1,25 @@
 /* 
-    This file stores sample data for us to use
+    This file stores sample data for us to use. 
 */
 
 db.events.save({
     title: "Movie Night",
-    start: new Date("<2017-04-23T17:30:00>"),
+    start: new Date("<2017-05-23T17:30:00>"),
     location:"USU Ballroom 1", 
     description:"Come enjoy classic films while meeting new people who share your interests. Free snacks.",
-    tags: ["free food", "movies", "social"]
+    filters: ["on campus", "staff", "students", "upcoming"],
+    tags: ["free food", "movies", "social"],
+    interested: 0
 }); 
 
-/*These have not been added to the live db*/
 db.events.save({
     title: "Casino Night",
     start: new Date("<2017-05-05T19:00:00>"),
     location:"USU Ballroom 1", 
     description:"A night of food, games, and prizes.",
-    tags: ["free food", "games", "social", "21+"]
+    filters: ["alumni", "on campus", "staff", "students", "upcoming"],
+    tags: ["free food", "games", "social", "21+"],
+    interested: 0
 }); 
 
 db.events.save({
@@ -25,7 +28,9 @@ db.events.save({
     end: new Date("<2017-05-07T19:00:00>"),
     location:"University Bookstore, First Floor", 
     description:"Get all of your graduation questions answered, sign up to walk, and order your cap + gown.",
-    tags: ["free food", "advising", "grad", "social"]
+    filters: ["free", "on campus", "students", "upcoming"],
+    tags: ["free food", "advising", "grad", "social"], 
+    interested: 0
 }); 
 
 db.events.save({
@@ -33,13 +38,17 @@ db.events.save({
     start: new Date("<2017-05-19T19:00:00>"),
     location:"USU Ballroom 1", 
     description:"A fun and easy way to meet new people.",
-    tags: ["lifestyle", "dating", "social"]
+    filters: ["free", "on campus", "students", "upcoming"],
+    tags: ["lifestyle", "dating", "social"], 
+    interested: 0
 }); 
 
 db.events.save({
     title: "SWE Bonfire",
     start: new Date("<2017-04-23T05:30:00>"),
-    location:"USU Ballroom 1", 
+    location:"Cherry Beach", 
     description:"Come enjoy the night with SWE members and find out more about our future activities.",
-    tags: ["free food", "off campus", "society of women engineers"]
+    filters: ["alumni", "free", "groups", "off campus", "students", "upcoming"],
+    tags: ["free food", "society of women engineers"],
+    interested: 0
 }); 
