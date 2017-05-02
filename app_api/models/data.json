@@ -2,53 +2,50 @@
     This file stores sample data for us to use. 
 */
 
-db.events.save({
-    title: "Movie Night",
-    start: new Date("<2017-05-23T17:30:00>"),
-    location:"USU Ballroom 1", 
-    description:"Come enjoy classic films while meeting new people who share your interests. Free snacks.",
-    filters: ["on campus", "staff", "students", "upcoming"],
-    tags: ["free food", "movies", "social"],
-    interested: 0
-}); 
-
-db.events.save({
-    title: "Casino Night",
-    start: new Date("<2017-05-05T19:00:00>"),
-    location:"USU Ballroom 1", 
-    description:"A night of food, games, and prizes.",
-    filters: ["alumni", "on campus", "staff", "students", "upcoming"],
-    tags: ["free food", "games", "social", "21+"],
-    interested: 0
-}); 
-
-db.events.save({
-    title: "Grad Festival",
-    start: new Date("<2017-05-07T10:00:00>"),
-    end: new Date("<2017-05-07T19:00:00>"),
-    location:"University Bookstore, First Floor", 
-    description:"Get all of your graduation questions answered, sign up to walk, and order your cap + gown.",
-    filters: ["free", "on campus", "students", "upcoming"],
-    tags: ["free food", "advising", "grad", "social"], 
-    interested: 0
-}); 
-
-db.events.save({
-    title: "Speed Dating",
-    start: new Date("<2017-05-19T19:00:00>"),
-    location:"USU Ballroom 1", 
-    description:"A fun and easy way to meet new people.",
-    filters: ["free", "on campus", "students", "upcoming"],
-    tags: ["lifestyle", "dating", "social"], 
-    interested: 0
-}); 
-
-db.events.save({
-    title: "SWE Bonfire",
-    start: new Date("<2017-04-23T05:30:00>"),
-    location:"Cherry Beach", 
-    description:"Come enjoy the night with SWE members and find out more about our future activities.",
-    filters: ["alumni", "free", "groups", "off campus", "students", "upcoming"],
-    tags: ["free food", "society of women engineers"],
-    interested: 0
-}); 
+db.events.insert([
+    {
+        title: "Movie Night",
+        start: new Date("<2017-05-23T17:30:00>"),
+        location:"USU Ballroom 1", 
+        description:"Come enjoy classic films while meeting new people who share your interests. Free snacks.",
+        filters: ["on campus", "staff", "students", "upcoming"],
+        tags: ["free food", "movies", "social"]
+    },
+    {
+        title: "Casino Night",
+        start: new Date("<2017-05-05T19:00:00>"),
+        location:"USU Ballroom 1", 
+        description:"A night of food, games, and prizes.",
+        filters: ["alumni", "on campus", "staff", "students", "upcoming"],
+        tags: ["free food", "games", "social", "21+"],
+        interested: 0
+    },
+    {
+        title: "Grad Festival",
+        start: new Date("<2017-05-07T10:00:00>"),
+        end: new Date("<2017-05-07T19:00:00>"),
+        location:"University Bookstore, First Floor", 
+        description:"Get all of your graduation questions answered, sign up to walk, and order your cap + gown.",
+        filters: ["free", "on campus", "students", "upcoming"],
+        tags: ["free food", "advising", "grad", "social"], 
+        interested: 3
+    },
+    {
+        title: "Speed Dating",
+        start: new Date("<2017-05-19T19:00:00>"),
+        location:"USU Ballroom 1", 
+        description:"A fun and easy way to meet new people.",
+        filters: ["free", "on campus", "students", "upcoming"],
+        tags: ["lifestyle", "dating", "social"], 
+        interested: 0
+    },
+    {
+        title: "SWE Bonfire",
+        start: new Date("<2017-04-23T05:30:00>"),
+        location:"Cherry Beach", 
+        description:"Come enjoy the night with SWE members and find out more about our future activities.",
+        filters: ["alumni", "free", "groups", "off campus", "students", "upcoming"],
+        tags: ["free food", "society of women engineers"],
+        interested: 0
+    } 
+]); 
