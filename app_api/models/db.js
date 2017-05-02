@@ -1,13 +1,14 @@
 var mongoose = require('mongoose');
 
-// Use the prod URI unless it is local
+/* Use the prod URI unless it is local */
 var dbURI = 'mongodb://127.0.0.1:27017/hopper';
 
-// Use prod URI if the NODE_ENV is prod
+/* Use prod URI if the NODE_ENV is prod */
 if(process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGODB_URI;
 }
 
+/* Connection messages */
 mongoose.connect(dbURI, function (err, res) {
   if(err) {
     console.log('ERROR connecting to: ' + dbURI + '. ' + err);
@@ -16,7 +17,7 @@ mongoose.connect(dbURI, function (err, res) {
   }
 });
 
-/*Line 7 - 22: Event Listeners*/
+/* Event Listeners */
 mongoose.connection.on('connected', function() {
     console.log('Mongoose connected to ' + dbURI);
 });
@@ -27,7 +28,7 @@ mongoose.connection.on('disconnected', function() {
     console.log('Mongoose disconnected');
 });
 
-/*Gracefully close Mongoose connection*/
+/* Gracefully close Mongoose connection */
 var gracefulShutdown = function (msg, callback) {
   mongoose.connection.close(function () {
     console.log('Mongoose disconnected through ' + msg);
@@ -35,7 +36,7 @@ var gracefulShutdown = function (msg, callback) {
   });
 };
 
-/*Lines 27-45: Calls gracefulShutdown when app terminates or nodemon restarts app*/
+/* Calls gracefulShutdown when nodemon restarts app */
 //for nodemon restarts
 process.once('SIGUSR2', function () {
   gracefulShutdown('nodemon restart', function () {
@@ -43,14 +44,14 @@ process.once('SIGUSR2', function () {
   });
 });
 
-//for app termination
+/* Calls gracefulShutdown when app terminates */
 process.on('SIGINT', function () {
   gracefulShutdown('app termination', function () {
     process.exit(0);
   });
 });
 
-//for heroku app termination
+/* /* Calls gracefulShutdown when app terminates on Heroku */
 process.on('SIGTERM', function() {
   gracefulShutdown('Heroku app shutdown', function () {
     process.exit(0);
