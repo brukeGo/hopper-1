@@ -7,9 +7,11 @@ var eventSchema = new mongoose.Schema({
   end: Date,
   location: { type: String, required: true },
   description: String,
+  filters: [ String ],
   tags: [ String ],
+  interested: { type: Number, default: 0 },
   posted: { type: Boolean, "default": false },
-  repeat: { repeat_every: Number, basis: String, occurences: Number}
+  repeat: { repeat_every: Number, basis: String, occurences: Number }
 });
 
 mongoose.model('Event', eventSchema);
