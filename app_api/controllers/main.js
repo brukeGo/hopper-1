@@ -6,11 +6,36 @@ module.exports.eventsList = function (req, res) {
 }
 
 module.exports.createEvent = function (req, res) {
-  sendResponse(res, 200, {"status": "success"});
+
 }
 
 module.exports.readEvent = function (req, res) {
-  sendResponse(res, 200, {"status": "success"});
+  // Error trap: Check that there are request params & eventid exists
+  if(req.params && req.params.eventid) {
+    hopper
+    .findById(req.params.eventid)
+    .exec(function(err, event) {
+      // Error trap: If Mongoose doesn't return event, send 404 and exit
+      if(!event) {
+        // No event with this id exists
+        sendResponse(res, 404, {
+          "msg": "eventid not found"
+        });
+        return;
+        // Error trap: If Mongoose returns an error, send 404 and exit
+      } else if(err) {
+        sendResponse(res, 404, err);
+        return;
+      }
+      // Success: Send 200 and event object
+      sendResponse(res, 200, event);
+    });
+  } else {
+      // If request did not include eventid, send 404
+      sendResponse(res, 404, {
+        "msg": "No eventid in request"
+      });
+  }
 }
 
 module.exports.updateEvent = function (req, res) {
