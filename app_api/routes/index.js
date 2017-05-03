@@ -6,7 +6,7 @@ var ctrlMain = require('../controllers/main');
 
 // Events
 router.get('/events', ctrlMain.eventsList);
-router.post('/events', ctrlMain.createEvent);
+router.post('/events/new', ctrlMain.createEvent);
 router.get('/events/:eventid', ctrlMain.readEvent);
 router.put('/events/:eventid', ctrlMain.updateEvent);
 router.delete('/events/:eventid', ctrlMain.deleteEvent);

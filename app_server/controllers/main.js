@@ -40,9 +40,9 @@ module.exports.event = function(req, res) {
 
 /* Controller for creating an event */
 module.exports.createEvent = function (req, res) {
-  res.render('event-form', 
+  res.render('checkboxes', 
     { title: 'Create Event',
-      link: "/event/saved"
+      link: "/api/events/new"
   });
 }
 
