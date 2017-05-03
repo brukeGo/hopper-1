@@ -1,5 +1,5 @@
 /* 
-    This file stores sample data for us to use
+    This file stores sample data for us to use. 
 */
 
 db.events.insert([
@@ -49,3 +49,4 @@ db.events.insert([
         interested: 0
     } 
 ]); 
+
