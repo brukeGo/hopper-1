@@ -8,15 +8,15 @@ block content
       p#profile-name.profile-name-card Create Event
       form.form-signin(action="#{link}" method="post")
         .event-form
-          input#inputEventName.form-control(type='text', placeholder='event name', required='', autofocus='')
-          input#inputEventStartDate.form-control(type='date', placeholder='event start date', required='')
-          input#inputEventEndDate.form-control(type='date', placeholder='event end date', required='')
-          input#inputEventLocation.form-control(type='text', placeholder='event location', required='')
-          input#inputEventStartTime.form-control(type='time', placeholder='event start time', required='')
-          input#inputEventEndTime.form-control(type='time', placeholder='event end time', required='')
-          input#inputEventDescription.form-control(type='text', placeholder='event description', required='')
-          input#inputImage.form-control(type='file', placeholder='upload image', optional='')
-          input#inputTags.form-control(type='text', placeholder='tags', optional='')
+          input#title.form-control(type='text', placeholder='event name', name='title', required='', autofocus='')
+          input#startdate.form-control(type='date', placeholder='event start date', name='startdate', required='')
+          input#enddate.form-control(type='date', placeholder='event end date', name='enddate',  required='')
+          input#location.form-control(type='text', placeholder='event location', name='location', required='')
+          input#starttime.form-control(type='time', placeholder='event start time', name='starttime', required='')
+          input#endtime.form-control(type='time', placeholder='event end time', name='endtime', required='')
+          input#description.form-control(type='text', placeholder='event description', name='description', required='')
+          input#img.form-control(type='file', placeholder='upload image', name='img', optional='')
+          input#tags.form-control(type='text', placeholder='tags', name='tags', optional='')
           .scroll
             ul
               .checkbox
