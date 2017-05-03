@@ -8,26 +8,25 @@
 var express = require('express');
 var router = express.Router();
 
-// Require controller file(s)
+/* Require controller file(s) */
 var ctrlMain = require('../controllers/main');
 
-/* GET home page. */
-router.get('/', ctrlMain.login); // Reference index method of ctrlMain controller in this route definition
-router.get('/welcome', ctrlMain.mainMenu);
-router.get('/event', ctrlMain.event);
-router.get('/event/new', ctrlMain.createEvent);
-router.get('/event/edit', ctrlMain.editEvent);
-router.get('/event/draft', ctrlMain.eventDraft);
-router.get('/event/saved', ctrlMain.eventSaved);
-router.get('/event/posted', ctrlMain.eventPosted);
-router.get('/events', ctrlMain.events);
-router.get('/events/finder', ctrlMain.eventFinder);
-router.get('/events/search', ctrlMain.searchEvents);
-router.get('/events/filter', ctrlMain.filterEvents);
-router.get('/events/liked', ctrlMain.likedEvents);
-router.get('/events/my', ctrlMain.myEvents);
-router.get('/recover', ctrlMain.recover);
-router.get('/register', ctrlMain.register);
-router.get('/account', ctrlMain.account); // need to add view for this (user-menu)
+router.get('/', ctrlMain.login); 			              // log in page
+router.get('/welcome', ctrlMain.mainMenu);		      // welcome/event menu
+router.get('/event', ctrlMain.event); 			        // view a event
+router.get('/event/new', ctrlMain.createEvent);		  // create an event
+router.get('/event/edit', ctrlMain.editEvent);		  // edit an event
+router.get('/event/draft', ctrlMain.eventDraft);	  // view an event draft
+router.get('/event/saved', ctrlMain.eventSaved);	  // event saved successfully! page
+router.get('/event/posted', ctrlMain.eventPosted);	// event posted successfully! page
+router.get('/events', ctrlMain.events);			        // view a list of events
+router.get('/events/finder', ctrlMain.eventFinder);	// find event menu
+router.get('/events/search', ctrlMain.searchEvents);// search for events by keywords/tags
+router.get('/events/filter', ctrlMain.filterEvents);// checkboxes for filtering through events
+router.get('/events/liked', ctrlMain.likedEvents);	// show list of user's liked events
+router.get('/events/my', ctrlMain.myEvents);		    // show list of user's event posts/drafts
+router.get('/recover', ctrlMain.recover);		        // recover passwords
+router.get('/register', ctrlMain.register);		      // register for account
+router.get('/account', ctrlMain.account); 		      // user menu
 
 module.exports = router;

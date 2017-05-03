@@ -1,30 +1,31 @@
 /* 
   CONTROLLERS
-    Purpose:  Controllers should manage the application logic
-    Example:  Render views, make API calls then render view, etc.
-*/
+    General Purpose:  Controllers should manage the application logic
+    Purpose in this project:  These controllers render views.
 
-module.exports.login = function(req, res) {
-
-  /*
-    Understanding res.render:
-      - render is the Express function for compiling a view
+  Understanding res.render:
+    - render is the Express function for compiling a view
       template to send as the HTML response to the browser
         
-        res.render('index', { title: ' Hopper' });
+    - res.render('index', { title: ' Hopper' });
       
-      render takes the name of the view template and a JavaScript
+    - render takes the name of the view template and a JavaScript
       data object
         - index: name of template file to use -- references index.jade
         - { title: 'Hopper' }: JavaScript object containing data for template
-  */
+*/
+
+/* Controller for login/landing page */
+module.exports.login = function(req, res) {
   res.render('login', { title: 'Event Hopper' });
 }
 
+/* Controller for the welcome/event menu */
 module.exports.mainMenu = function (req, res) {
   res.render('main-menu', { title: 'Welcome' });
 }
 
+/* Controller for viewing a posted event */
 module.exports.event = function(req, res) {
   res.render('event', 
   { event: 
@@ -37,6 +38,7 @@ module.exports.event = function(req, res) {
   });
 }
 
+/* Controller for creating an event */
 module.exports.createEvent = function (req, res) {
   res.render('event-form', 
     { title: 'Create Event',
@@ -44,6 +46,7 @@ module.exports.createEvent = function (req, res) {
   });
 }
 
+/* Controller for viewing an event draft */
 module.exports.eventDraft = function (req, res) {
   res.render('event-draft', 
     { title: 'Draft',
@@ -67,14 +70,17 @@ module.exports.eventDraft = function (req, res) {
   });
 }
 
+/* Controller for viewing the "Event saved successfully" page */
 module.exports.eventSaved = function (req, res) {
   res.render('event-saved', { title: 'Saved' });
 }
 
+/* Controller for viewing the "Event posted successfully page */
 module.exports.eventPosted = function (req, res) {
   res.render('event-posted', { title: 'Posted' });
 }
 
+/* Controller for viewing a list of events */
 module.exports.events = function(req, res) {
   res.render('events',
     { title: 'All Events',
@@ -88,18 +94,22 @@ module.exports.events = function(req, res) {
     });
 }
 
+/* Controller for viewing the find event menu */
 module.exports.eventFinder = function(req, res) {
   res.render('event-finder', {title: 'Find Event'});
 }
 
+/* Controller for searching for events by keywords/tags */
 module.exports.searchEvents = function(req, res) {
   res.render('search-events', {title: 'Keyword Search'});
 }
 
+/* Controller for filtering through events by selecting categories */
 module.exports.filterEvents = function(req, res) {
   res.render('filter-events', {title: 'Filter Events'});
 }
 
+/* Controller for viewing event posts/drafts made by the user */
 module.exports.myEvents = function(req, res) {
   res.render('events',
     { title: 'My Events',
@@ -109,6 +119,7 @@ module.exports.myEvents = function(req, res) {
     });
 }
 
+/* Controller for updating an event post/draft */
 module.exports.editEvent = function(req, res) {
   res.render('event-form', 
     { title: 'Edit Event',
@@ -116,6 +127,7 @@ module.exports.editEvent = function(req, res) {
   });
 }
 
+/* Controller for viewing events liked by the user */
 module.exports.likedEvents = function(req, res) {
   res.render('events',
     { title: 'Liked Events',
@@ -125,15 +137,17 @@ module.exports.likedEvents = function(req, res) {
     });
 }
 
+/* Controller for registering for an account*/
 module.exports.register = function(req, res) {
   res.render('register', {title: 'Register'});
 }
 
+/* Controller for recovering a user password*/
 module.exports.recover = function(req, res) {
   res.render('recover', {title: 'Recover'});
 }
 
+/* Controller for the user menu*/
 module.exports.account = function(req, res) {
   res.render('user-menu', {title: 'User Menu'});
 }
-
