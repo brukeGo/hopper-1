@@ -6,7 +6,7 @@ block content
       a(href='welcome.html')
         img(src='img/bunny.png', alt='logo', width='90', height='90')
       p#profile-name.profile-name-card Create Event
-      form.form-signin(action='viewEvent.html')
+      form.form-signin(action="#{link}" method="post")
         .event-form
           input#inputEventName.form-control(type='text', placeholder='event name', required='', autofocus='')
           input#inputEventStartDate.form-control(type='date', placeholder='event start date', required='')
@@ -21,54 +21,42 @@ block content
             ul
               .checkbox
                 label
-                  input(type='checkbox', value='')
-                  | All
-              .checkbox
-                label
-                  input(type='checkbox', value='')
+                  input(type='checkbox', value='alumni')
                   | Alumni
               .checkbox
                 label
-                  input(type='checkbox', value='')
+                  input(type='checkbox', value='education')
                   | Education
               .checkbox
                 label
-                  input(type='checkbox', value='')
-                  | Education
-              .checkbox
-                label
-                  input(type='checkbox', value='')
+                  input(type='checkbox', value='free')
                   | Free
               .checkbox
                 label
-                  input(type='checkbox', value='')
-                  | Groups
+                  input(type='checkbox', value='campus org')
+                  | Campus Org
               .checkbox
                 label
-                  input(type='checkbox', value='')
+                  input(type='checkbox', value='unaffiliated')
+                  | Unaffiliated
+              .checkbox
+                label
+                  input(type='checkbox', value='off campus')
                   | Off Campus
               .checkbox
                 label
-                  input(type='checkbox', value='')
+                  input(type='checkbox', value='on campus')
                   | On Campus
               .checkbox
                 label
-                  input(type='checkbox', value='')
+                  input(type='checkbox', value='staff')
                   | Staff
               .checkbox
                 label
-                  input(type='checkbox', value='')
+                  input(type='checkbox', value='students')
                   | Students
               .checkbox
                 label
-                  input(type='checkbox', value='')
+                  input(type='checkbox', value='sports')
                   | Sports
-              .checkbox
-                label
-                  input(type='checkbox', value='')
-                  | Today
-              .checkbox
-                label
-                  input(type='checkbox', value='')
-                  | Upcoming
           button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') CREATE EVENT
