@@ -6,7 +6,8 @@ module.exports.eventsList = function (req, res) {
 }
 
 module.exports.createEvent = function (req, res) {
-
+  // If request did not include eventid, send 404
+  sendResponse(res, 200, req.body);
 }
 
 module.exports.readEvent = function (req, res) {
