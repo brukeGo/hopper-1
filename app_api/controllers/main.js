@@ -8,6 +8,16 @@ module.exports.eventsList = function (req, res) {
 module.exports.createEvent = function (req, res) {
   // place a relevant comment here
   console.log(req.body);
+  var tags = req.body.tags.split(",");
+  var filterArray = [];
+  
+  if(req.body.filters === '[object Array]') {
+    console.log("An array!");
+    filterArray = req.body.filters;
+  } else {
+    filterArray.push(req.body.filters);
+  }
+
   sendResponse(res, 200, 
     { title: req.body.title, 
       startDate: req.body.startDate,
@@ -16,7 +26,8 @@ module.exports.createEvent = function (req, res) {
       startTime: req.body.startTime,
       endTime: req.body.endTime,
       description: req.body.description,
-      tags: req.body.tags
+      tags: tags,
+      filters: filterArray
       //still need to do filters and maybe interested
   });
 }
