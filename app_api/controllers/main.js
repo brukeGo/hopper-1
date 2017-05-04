@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 var Event = mongoose.model('Event');
 
+/* This controller SHOULD return a list. */
 module.exports.eventsList = function (req, res) {
   sendResponse(res, 200, {"status": "success"});
 }
 
+/* This controller takes information for an event (provided by user), and stores in a database. */
 module.exports.createEvent = function (req, res) {
-  // place a relevant comment here
   console.log(req.body);
   var tags = req.body.tags.split(",");
   var filterArray = [];
@@ -30,7 +31,6 @@ module.exports.createEvent = function (req, res) {
       description: req.body.description,
       tags: tags,
       filters: filterArray
-      //still need to do filters and maybe interested
   }, function(err, event) {
     if(err) {
       sendResponse(res, 400, error);
@@ -40,6 +40,7 @@ module.exports.createEvent = function (req, res) {
   });
 }
 
+/* This controller returns event information from database. */
 module.exports.readEvent = function (req, res) {
   // Error trap: Check that there are request params & eventid exists
   if(req.params && req.params.eventid) {
@@ -69,14 +70,17 @@ module.exports.readEvent = function (req, res) {
   }
 }
 
+/* This controller SHOULD update an event's information in the database. */
 module.exports.updateEvent = function (req, res) {
   sendResponse(res, 200, {"status": "success"});
 }
 
+/* This controller SHOULD delete an event document from database. */
 module.exports.deleteEvent = function (req, res) {
   sendResponse(res, 200, {"status": "success"});
 }
 
+/* Sends a HTTP status code and data in JSON format.*/
 var sendResponse = function(res, status, content) {
   res.status(status);
   res.json(content);
