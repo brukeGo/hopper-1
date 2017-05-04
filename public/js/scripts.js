@@ -175,3 +175,5 @@ window.onclick = function(event) {
     }
   }
 }
+
+$('#tags').tagsinput();
