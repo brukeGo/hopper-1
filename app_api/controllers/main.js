@@ -18,13 +18,16 @@ module.exports.createEvent = function (req, res) {
     filterArray.push(req.body.filters);
   }
 
+  var start = new Date(req.body.start);
+  var end = new Date(req.body.end);
+  console.log("start:" + start);
+  console.log
+
   sendResponse(res, 200, 
     { title: req.body.title, 
-      startDate: req.body.startDate,
-      endDate: req.body.endDate,
+      start: start.toISOString(),
+      end: end.toISOString(),
       location: req.body.location,
-      startTime: req.body.startTime,
-      endTime: req.body.endTime,
       description: req.body.description,
       tags: tags,
       filters: filterArray
