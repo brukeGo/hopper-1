@@ -1,5 +1,5 @@
 body, html {
-    height: 100%;
+    min-height: 100%;
     background-repeat: no-repeat;
     background-image: linear-gradient(rgb(55, 240, 200), rgb(0, 202, 247));
 	background: -moz-linear-gradient(45deg, rgba(56,232,194,1) 0%, rgba(0,212,255,1) 100%); /* ff3.6+ */
