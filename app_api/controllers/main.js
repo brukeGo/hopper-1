@@ -7,17 +7,18 @@ module.exports.eventsList = function (req, res) {
 
 module.exports.createEvent = function (req, res) {
   // place a relevant comment here
+  console.log(req.body);
   sendResponse(res, 200, 
-              {title: req.body.title, 
-                startDate: req.body.startDate,
-                endDate: req.body.endDate,
-                location: req.body.location,
-                startTime: req.body.startTime,
-                endTime: req.body.endTime,
-                description: req.body.description,
-                tags: req.body.tags
-                //still need to do filters and maybe interested
-              });
+    { title: req.body.title, 
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
+      location: req.body.location,
+      startTime: req.body.startTime,
+      endTime: req.body.endTime,
+      description: req.body.description,
+      tags: req.body.tags
+      //still need to do filters and maybe interested
+  });
 }
 
 module.exports.readEvent = function (req, res) {
