@@ -3,18 +3,58 @@ extends layout
 block content
   .container
     .card.card-container
-      a(href='/welcome')
+      a(href='welcome.html')
         img(src='/img/bunny.png', alt='logo', width='90', height='90')
-      p#profile-name.profile-name-card=title
-      form.form-signin(action="#{link}")
+      p#profile-name.profile-name-card Create Event
+      form.form-signin(action="#{link}" method="post")
         .event-form
-          input#inputEventName.form-control(type='text', placeholder='event name', required='', autofocus='')
-          input#inputEventStartDate.form-control(type='date', placeholder='event start date', required='')
-          input#inputEventEndDate.form-control(type='date', placeholder='event end date', required='')
-          input#inputEventLocation.form-control(type='text', placeholder='event location', required='')
-          input#inputEventStartTime.form-control(type='time', placeholder='event start time', required='')
-          input#inputEventEndTime.form-control(type='time', placeholder='event end time', required='')
-          input#inputEventDescription.form-control(type='text', placeholder='event description', required='')
-          input#inputImage.form-control(type='file', placeholder='upload image', optional='')
-          input#inputTags.form-control(type='text', placeholder='tags', optional='')
+          input#title.form-control(type='text', placeholder='event name', name='title', required='', autofocus='')
+          input#start.form-control(type='datetime-local', placeholder='event start', name='start', required='')
+          input#end.form-control(type='datetime-local', placeholder='event end', name='end',  required='')
+          input#location.form-control(type='text', placeholder='event location', name='location', required='')
+          input#description.form-control(type='text', placeholder='event description', name='description', required='')
+          input#img.form-control(type='file', placeholder='upload image', name='img', optional='')
+          input#tags.form-control(type='text', data-role="tagsinput", placeholder='tags', name='tags', optional='')
+          .scroll
+            ul
+              .checkbox
+                label
+                  input(type='checkbox', name="filters", value='alumni')
+                  | Alumni
+              .checkbox
+                label
+                  input(type='checkbox', name='filters', value='education')
+                  | Education
+              .checkbox
+                label
+                  input(type='checkbox', name='filters', value='free')
+                  | Free
+              .checkbox
+                label
+                  input(type='checkbox', name='filters', value='campus org')
+                  | Campus Org
+              .checkbox
+                label
+                  input(type='checkbox', name='filters', value='unaffiliated')
+                  | Unaffiliated
+              .checkbox
+                label
+                  input(type='checkbox', name='filters', value='off campus')
+                  | Off Campus
+              .checkbox
+                label
+                  input(type='checkbox', name='filters', value='on campus')
+                  | On Campus
+              .checkbox
+                label
+                  input(type='checkbox', name='filters', value='staff')
+                  | Staff
+              .checkbox
+                label
+                  input(type='checkbox', name='filters', value='students')
+                  | Students
+              .checkbox
+                label
+                  input(type='checkbox', name='filters', value='sports')
+                  | Sports
           button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') CREATE EVENT
