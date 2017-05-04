@@ -27,3 +27,9 @@ Please note that the book refers to using Heroku Foreman - that's obsolete. See 
 
 ## Check out the app
 Visit [our app](https://eventhopper.herokuapp.com/)
+
+## User Manual
+Visit [link](http://hollyd.sgedu.site/EventHopper/userManual.html)
+
+## Developer Guide
+Visit [link](http://hollyd.sgedu.site/EventHopper/developerGuide.html)
