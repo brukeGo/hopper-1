@@ -9,11 +9,9 @@ block content
       form.form-signin(action="#{link}" method="post")
         .event-form
           input#title.form-control(type='text', placeholder='event name', name='title', required='', autofocus='')
-          input#startdate.form-control(type='date', placeholder='event start date', name='startdate', required='')
-          input#enddate.form-control(type='date', placeholder='event end date', name='enddate',  required='')
+          input#start.form-control(type='datetime-local', placeholder='event start', name='start', required='')
+          input#end.form-control(type='datetime-local', placeholder='event end', name='end',  required='')
           input#location.form-control(type='text', placeholder='event location', name='location', required='')
-          input#starttime.form-control(type='time', placeholder='event start time', name='starttime', required='')
-          input#endtime.form-control(type='time', placeholder='event end time', name='endtime', required='')
           input#description.form-control(type='text', placeholder='event description', name='description', required='')
           input#img.form-control(type='file', placeholder='upload image', name='img', optional='')
           input#tags.form-control(type='text', data-role="tagsinput", placeholder='tags', name='tags', optional='')
