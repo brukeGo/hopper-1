@@ -11,7 +11,8 @@ router.get('/events/:eventid', ctrlMain.readEvent);
 router.put('/events/:eventid', ctrlMain.updateEvent);
 router.delete('/events/:eventid', ctrlMain.deleteEvent);
 
-router.get('/events/tag', ctrlMain.taggedEventsList);
+router.post('/events/search', ctrlMain.searchEventsList);
+router.post('/events/tag', ctrlMain.taggedEventsList);
 router.post('/events/filter', ctrlMain.filteredEventsList);
 
 module.exports = router;
