@@ -1,7 +1,43 @@
 var mongoose = require('mongoose');
 var Event = mongoose.model('Event');
 
-/* This controller SHOULD return a list. */
+/* This controller is going to return a list of events based on chosen filters. */
+module.exports.filteredEventsList = function (req, res) {
+  console.log(req.body);
+  var mongoArray = [];
+  var filterArray = [];
+  if(Array.isArray(req.body.filters)) {
+    filterArray = req.body.filters;
+  } else {
+    filterArray.push(req.body.filters);
+  }
+  for (var f = 0; f < filterArray.length; f++){
+    var filterObj = {"filters": ""};
+    filterObj.filters = filterArray[f];
+    mongoArray.push(filterObj);
+    console.log(filterArray[f]);
+  }
+  console.log(JSON.stringify(mongoArray));
+  Event.find({$and: mongoArray}, function (err, events){
+    if(events.length === 0){
+      sendResponse(res, 201, {msg:'No events match selected filter(s).'});
+      return; 
+    } else if(err) {
+      // Error trap: If Mongoose returns an error, send 404 and exit
+        sendResponse(res, 404, err);
+        return;
+    }
+    console.log('Events: '+ events);
+    sendResponse(res, 201, events);  
+  });
+}
+
+/* This controller SHOULD return a list of events based on comma separated tags. */
+module.exports.taggedEventsList = function (req, res) {
+  sendResponse(res, 200, {"status": "success"});
+}
+
+/* This controller SHOULD return a list of all events. */
 module.exports.eventsList = function (req, res) {
   sendResponse(res, 200, {"status": "success"});
 }
