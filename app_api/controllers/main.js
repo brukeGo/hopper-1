@@ -4,20 +4,25 @@ var Event = mongoose.model('Event');
 /* This controller is going to return a list of events based on chosen filters. */
 module.exports.filteredEventsList = function (req, res) {
   console.log(req.body);
+
   var mongoArray = [];
   var filterArray = [];
+
   if(Array.isArray(req.body.filters)) {
     filterArray = req.body.filters;
   } else {
     filterArray.push(req.body.filters);
   }
+
   for (var f = 0; f < filterArray.length; f++){
     var filterObj = {"filters": ""};
     filterObj.filters = filterArray[f];
     mongoArray.push(filterObj);
     console.log(filterArray[f]);
   }
+
   console.log(JSON.stringify(mongoArray));
+
   Event.find({$and: mongoArray}, function (err, events){
     if(events.length === 0){
       sendResponse(res, 201, {msg:'No events match selected filter(s).'});
@@ -32,9 +37,54 @@ module.exports.filteredEventsList = function (req, res) {
   });
 }
 
+/* This controller SHOULD return a list of events based on searched input */
+module.exports.searchEventsList = function (req, res) {
+  var keys = req.body.tags.split(",");
+
+  console.log(JSON.stringify(keys));
+
+  var regexArray = [];
+
+  for(var key = 0; key < keys.length; key++) {
+    var regExp = new RegExp('.*' + keys[key] + '.*', 'i');
+    console.log(regExp);
+    regexArray.push(regExp);
+  }
+
+  console.log(JSON.toString(regexArray));
+
+  Event.find( { $or: [ { tags: { $in: keys } }, { description: { $in: regexArray } }, { title: { $in: regexArray } } ] }, function (err, events){
+    if(events.length === 0) {
+      sendResponse(res, 201, {msg:'No events match your search'});
+      return; 
+    } else if(err) {
+      // Error trap: If Mongoose returns an error, send 404 and exit
+        sendResponse(res, 404, err);
+        return;
+    }
+    console.log('Events: '+ events);
+    sendResponse(res, 201, events);  
+  });
+}
+
 /* This controller SHOULD return a list of events based on comma separated tags. */
 module.exports.taggedEventsList = function (req, res) {
-  sendResponse(res, 200, {"status": "success"});
+  var tags = req.body.tags.split(",");
+
+  console.log(JSON.stringify(tags));
+  
+  Event.find( { tags: { $in: tags } }, function (err, events){
+    if(events.length === 0){
+      sendResponse(res, 201, {msg:'No events match your search'});
+      return; 
+    } else if(err) {
+      // Error trap: If Mongoose returns an error, send 404 and exit
+        sendResponse(res, 404, err);
+        return;
+    }
+    console.log('Events: '+ events);
+    sendResponse(res, 201, events);  
+  });
 }
 
 /* This controller SHOULD return a list of all events. */
