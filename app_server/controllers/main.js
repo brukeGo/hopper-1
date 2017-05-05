@@ -99,14 +99,17 @@ module.exports.eventFinder = function(req, res) {
   res.render('event-finder', {title: 'Find Event'});
 }
 
-/* Controller for searching for events by keywords/tags */
+/* Controller for searching for events by tags */
 module.exports.searchEvents = function(req, res) {
   res.render('search-events', {title: 'Keyword Search'});
 }
 
 /* Controller for filtering through events by selecting categories */
 module.exports.filterEvents = function(req, res) {
-  res.render('filter-events', {title: 'Filter Events'});
+  res.render('filter-events', 
+  {title: 'Filter Events',
+  link: "/api/events/filter"
+  });
 }
 
 /* Controller for viewing event posts/drafts made by the user */
