@@ -6,57 +6,45 @@ block content
       a(href='/welcome')
         img(src='/img/bunny.png', alt='logo', width='90', height='90')
       p#profile-name.profile-name-card Filter Events
-      form.form-check(action='/events')
+      form.form-check(action="#{link}" method="post")
         .checkbox
           label
-            input(type='checkbox', value='')
-            | All
-        .checkbox
-          label
-            input(type='checkbox', value='')
+            input(type='checkbox', name="filters", value='alumni')
             | Alumni
         .checkbox
           label
-            input(type='checkbox', value='')
+            input(type='checkbox', name='filters', value='education')
             | Education
         .checkbox
           label
-            input(type='checkbox', value='')
-            | Education
-        .checkbox
-          label
-            input(type='checkbox', value='')
+            input(type='checkbox', name='filters', value='free')
             | Free
         .checkbox
           label
-            input(type='checkbox', value='')
-            | Groups
+            input(type='checkbox', name='filters', value='campus org')
+            | Campus Org
         .checkbox
           label
-            input(type='checkbox', value='')
+            input(type='checkbox', name='filters', value='unaffiliated')
+            | Unaffiliated
+        .checkbox
+          label
+            input(type='checkbox', name='filters', value='off campus')
             | Off Campus
         .checkbox
           label
-            input(type='checkbox', value='')
+            input(type='checkbox', name='filters', value='on campus')
             | On Campus
         .checkbox
           label
-            input(type='checkbox', value='')
+            input(type='checkbox', name='filters', value='staff')
             | Staff
         .checkbox
           label
-            input(type='checkbox', value='')
+            input(type='checkbox', name='filters', value='students')
             | Students
         .checkbox
           label
-            input(type='checkbox', value='')
+            input(type='checkbox', name='filters', value='sports')
             | Sports
-        .checkbox
-          label
-            input(type='checkbox', value='')
-            | Today
-        .checkbox
-          label
-            input(type='checkbox', value='')
-            | Upcoming
         button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') FIND EVENTS
