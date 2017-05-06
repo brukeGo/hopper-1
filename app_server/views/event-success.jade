@@ -5,12 +5,12 @@ block content
     .card.card-container
       a(href='/welcome')
         img(src='/img/bunny.png', alt='logo', width='90', height='90')
-      p#profile-name.profile-name-card Event Posted
+      p#profile-name.profile-name-card #{title}
       .savedView
         h2 Success!
         p
         h4
-          | Congratulations. Your event has been posted. To view or edit this event go to My Events in the user menu.
+          | #{message}
       a.btn.btn-info(href='/account', role='button') USER MENU
       br
       a.btn.btn-info(href='/', role='button') SIGN OUT
