@@ -52,7 +52,7 @@ module.exports.event = function(req, res) {
 module.exports.createEvent = function (req, res) {
   res.render('event-form', 
     { title: 'Create Event',
-      link: "/api/events/new"
+      link: "/event/saved"
   });
 }
 
@@ -82,6 +82,25 @@ module.exports.eventDraft = function (req, res) {
 
 /* Controller for viewing the "Event saved successfully" page */
 module.exports.eventSaved = function (req, res) {
+  var requestOptions, path;
+
+  path = '/api/events/new';
+
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "POST",
+    form: req.body
+  };
+
+  request(
+    requestOptions,
+    function(err, response, body) {
+      renderSavedPage(err, req, res, body);
+    }
+  );
+}
+
+var renderSavedPage = function(err, req, res, resBody) {
   res.render('event-success', { 
     title: 'Event Saved',
     message: 'Your event has been saved as a draft. To post, view, or edit this event go to My Events in the user menu.'
@@ -162,38 +181,42 @@ module.exports.searchEvents = function(req, res) {
 
 /* Controller for filtering through events by selecting categories */
 module.exports.filterEvents = function(req, res) {
-  res.render('filter-events', 
-  {title: 'Filter Events',
-  link: "/api/events/filter"
+  res.render('filter-events', { 
+    title: 'Filter Events',
+    link: "/api/events/filter"
   });
 }
 
 /* Controller for viewing event posts/drafts made by the user */
 module.exports.myEvents = function(req, res) {
-  res.render('events',
-    { title: 'My Events',
-      eventsList: [ { title:'Movie Night'}, 
-                    { title:'Casino Night'}],
-      link: "/event/draft"
-    });
+  res.render('events', { 
+    title: 'My Events',
+    eventsList: [ 
+      { title:'Movie Night'}, 
+      { title:'Casino Night'}
+    ],
+    link: "/event/draft"
+  });
 }
 
 /* Controller for updating an event post/draft */
 module.exports.editEvent = function(req, res) {
-  res.render('event-form', 
-    { title: 'Edit Event',
-      link: "/event/saved"
+  res.render('event-form', { 
+    title: 'Edit Event',
+    link: "/event/saved"
   });
 }
 
 /* Controller for viewing events liked by the user */
 module.exports.likedEvents = function(req, res) {
-  res.render('events',
-    { title: 'Liked Events',
-      eventsList: [ { title:'Speed Dating' },
-                    { title: 'SWE Bonfire' }],
-      link: "/event"
-    });
+  res.render('events', { 
+    title: 'Liked Events',
+    eventsList: [ 
+      { title:'Speed Dating' },
+      { title: 'SWE Bonfire' }
+    ],
+    link: "/event"
+  });
 }
 
 /* Controller for registering for an account*/
