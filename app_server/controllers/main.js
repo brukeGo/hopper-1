@@ -160,3 +160,11 @@ module.exports.recover = function(req, res) {
 module.exports.account = function(req, res) {
   res.render('user-menu', {title: 'User Menu'});
 }
+
+/*Controller for viewing the 'Verify E-mail Address' page. */
+module.exports.verify = function(req, res){
+  res.render('verify-account', {
+    title: 'Verify E-mail',
+    message: 'A verification message was sent to your e-mail address. Please verify your e-mail and you will be able to log in to your new account.'
+  });
+}
