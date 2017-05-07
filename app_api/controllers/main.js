@@ -34,12 +34,14 @@ module.exports.filteredEventsList = function (req, res) {
 
 /* This controller SHOULD return a list of events based on comma separated tags. */
 module.exports.taggedEventsList = function (req, res) {
-  sendResponse(res, 200, {"status": "success"});
 }
 
 /* This controller SHOULD return a list of all events. */
 module.exports.eventsList = function (req, res) {
-  sendResponse(res, 200, {"status": "success"});
+  Event.find({}, 
+    function(err, events) {
+       sendResponse(res, 200, events);
+  });
 }
 
 /* This controller takes information for an event (provided by user), and stores in a database. */
