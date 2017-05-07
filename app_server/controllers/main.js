@@ -82,12 +82,18 @@ module.exports.eventDraft = function (req, res) {
 
 /* Controller for viewing the "Event saved successfully" page */
 module.exports.eventSaved = function (req, res) {
-  res.render('event-saved', { title: 'Saved' });
+  res.render('event-success', { 
+    title: 'Event Saved',
+    message: 'Your event has been saved as a draft. To post, view, or edit this event go to My Events in the user menu.'
+ });
 }
 
 /* Controller for viewing the "Event posted successfully page */
 module.exports.eventPosted = function (req, res) {
-  res.render('event-posted', { title: 'Posted' });
+  res.render('event-success', { 
+    title: 'Event Posted',
+    message: 'Congratulations. Your event has been posted. To view or edit this event go to My Events in the user menu.'
+   });
 }
 
 /* Controller for viewing a list of events */
@@ -192,7 +198,12 @@ module.exports.likedEvents = function(req, res) {
 
 /* Controller for registering for an account*/
 module.exports.register = function(req, res) {
-  res.render('register', {title: 'Register'});
+  res.render('register', {
+    title: 'Create Account',
+    message: 'Please enter your information in the fields below. You will recieve a verification email to confirm your account.',
+    link: '/verify',
+    buttonText: 'SEND EMAIL'
+  });
 }
 
 /* Controller for recovering a user password*/
@@ -203,4 +214,22 @@ module.exports.recover = function(req, res) {
 /* Controller for the user menu*/
 module.exports.account = function(req, res) {
   res.render('user-menu', {title: 'User Menu'});
+}
+
+/*Controller for viewing the 'Verify E-mail Address' page. */
+module.exports.verify = function(req, res){
+  res.render('verify-account', {
+    title: 'Verify E-mail',
+    message: 'A verification message was sent to your e-mail address. Please verify your e-mail and you will be able to log in to your new account.'
+  });
+}
+
+/* Controller for editing account. */
+module.exports.editAccount = function(req, res){
+  res.render('register', {
+    title: 'Edit Account',
+    message: 'Edit your account information by filling the necessary fields below.',
+    link: '/welcome',
+    buttonText: 'SAVE CHANGES'
+  });
 }
