@@ -22,7 +22,7 @@ var apiOptions = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = "eventhopper.herokuapp.com";
+  apiOptions.server = "http://eventhopper.herokuapp.com";
 }
 
 /* Controller for login/landing page */
