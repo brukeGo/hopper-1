@@ -204,9 +204,9 @@ module.exports.eventsSearched = function(req, res) {
 var renderSearchedPage = function(err, req, res, responseBody) {
   var message;
 
-  console.log(responseBody);
+  console.log(Array.isArray(JSON.parse(responseBody)));
 
-  if(!(responseBody instanceof Array)) {
+  if(!Array.isArray(JSON.parse(responseBody))) {
     message = "API lookup error" + responseBody;
     responseBody = [];
   } else {
@@ -217,7 +217,7 @@ var renderSearchedPage = function(err, req, res, responseBody) {
 
   res.render('events', {
       title: 'Searched Events',
-      eventsList: responseBody,
+      eventsList: JSON.parse(responseBody),
       link: "/event",
       message: message
   });
