@@ -176,9 +176,51 @@ module.exports.eventFinder = function(req, res) {
   res.render('event-finder', {title: 'Find Event'});
 }
 
-/* Controller for searching for events by tags */
+/* Controller to show view to search for events by keywords */
 module.exports.searchEvents = function(req, res) {
   res.render('search-events', {title: 'Keyword Search'});
+}
+
+/* Controller to make api call to search for events with keywords inputted */
+module.exports.eventsSearched = function(req, res) {
+  var requestOptions, path;
+
+  path = '/api/events/search';
+
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "POST",
+    form: req.body
+  };
+
+  request(
+    requestOptions,
+    function(err, response, body) {
+      renderSearchedPage(err, req, res, body);
+    }
+  );
+}
+
+var renderSearchedPage = function(err, req, res, responseBody) {
+  var message;
+
+  console.log(responseBody);
+
+  if(!(responseBody instanceof Array)) {
+    message = "API lookup error" + responseBody;
+    responseBody = [];
+  } else {
+      if(!responseBody.length) {
+        message = "No events found";
+      }
+  }
+
+  res.render('events', {
+      title: 'Searched Events',
+      eventsList: responseBody,
+      link: "/event",
+      message: message
+  });
 }
 
 /* Controller for filtering through events by selecting categories */
