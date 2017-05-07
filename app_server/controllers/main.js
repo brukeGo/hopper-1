@@ -101,6 +101,8 @@ module.exports.eventSaved = function (req, res) {
 }
 
 var renderSavedPage = function(err, req, res, resBody) {
+  console.log("Posted!: " + req);
+  //TODO: Catch errors
   res.render('event-success', { 
     title: 'Event Saved',
     message: 'Your event has been saved as a draft. To post, view, or edit this event go to My Events in the user menu.'
