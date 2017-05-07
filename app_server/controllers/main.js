@@ -148,7 +148,12 @@ module.exports.likedEvents = function(req, res) {
 
 /* Controller for registering for an account*/
 module.exports.register = function(req, res) {
-  res.render('register', {title: 'Register'});
+  res.render('register', {
+    title: 'Create Account',
+    message: 'Please enter your information in the fields below. You will recieve a verification email to confirm your account.',
+    link: '/verify',
+    buttonText: 'SEND EMAIL'
+  });
 }
 
 /* Controller for recovering a user password*/
@@ -166,5 +171,15 @@ module.exports.verify = function(req, res){
   res.render('verify-account', {
     title: 'Verify E-mail',
     message: 'A verification message was sent to your e-mail address. Please verify your e-mail and you will be able to log in to your new account.'
+  });
+}
+
+/* Controller for editing account. */
+module.exports.editAccount = function(req, res){
+  res.render('register', {
+    title: 'Edit Account',
+    message: 'Edit your account information by filling the necessary fields below.',
+    link: '/welcome',
+    buttonText: 'SAVE CHANGES'
   });
 }
