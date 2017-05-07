@@ -5,8 +5,8 @@ block content
   .card.card-container
     a(href='/welcome')
       img(src='/img/bunny.png', alt='logo', width='90', height='90')
-    p#profile-name.profile-name-card Filter Events
-    form(action='/events/search' method="post")
+    p#profile-name.profile-name-card Search Events
+    form(action='/events/searched' method="post")
         .input-group
             input#tags.form-control(type='text', data-role="tagsinput", placeholder='Search by keywords', name='tags', optional='')
             span.input-group-btn
