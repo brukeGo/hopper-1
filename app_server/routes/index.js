@@ -31,5 +31,6 @@ router.get('/register', ctrlMain.register);		      // register for account
 router.get('/account', ctrlMain.account); 		      // user menu
 router.get('/account/edit', ctrlMain.editAccount);  // edit account info
 router.get('/verify', ctrlMain.verify);             // verify e-mail
+router.post('/events/filtered', ctrlMain.filteredEvents); //view a list of filtered events
 
 module.exports = router;

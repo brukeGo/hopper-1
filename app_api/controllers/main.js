@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Event = mongoose.model('Event');
 
+
 /* This controller is going to return a list of events based on chosen filters. */
 module.exports.filteredEventsList = function (req, res) {
   console.log(req.body);
@@ -24,11 +25,9 @@ module.exports.filteredEventsList = function (req, res) {
   console.log(JSON.stringify(mongoArray));
 
   Event.find({$and: mongoArray}, function (err, events){
-    if(events.length === 0){
-      sendResponse(res, 201, {msg:'No events match selected filter(s).'});
-      return; 
-    } else if(err) {
+    if(err) {
       // Error trap: If Mongoose returns an error, send 404 and exit
+      console.log('Mongoose error');
         sendResponse(res, 404, err);
         return;
     }

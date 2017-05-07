@@ -203,19 +203,6 @@ var renderEventsPage = function(err, req, res, responseBody) {
   });
 }
 
-/*module.exports.events = function(req, res) {
-  res.render('events',
-    { title: 'All Events',
-      eventsList: [ { title:'Movie Night'}, 
-                    { title:'Casino Night'}, 
-                    { title:'Grad Festival'},
-                    { title:'Alumni Lunch'}, 
-                    { title:'Speed Dating'},
-                    { title: 'SWE Bonfire'}],
-      link: "/event"
-    });
-}*/
-
 /* Controller for viewing the find event menu */
 module.exports.eventFinder = function(req, res) {
   res.render('event-finder', {title: 'Find Event'});
@@ -272,7 +259,7 @@ var renderSearchedPage = function(err, req, res, responseBody) {
 module.exports.filterEvents = function(req, res) {
   res.render('filter-events', { 
     title: 'Filter Events',
-    link: "/api/events/filter"
+    link: "/events/filtered"
   });
 }
 
@@ -343,5 +330,40 @@ module.exports.editAccount = function(req, res){
     message: 'Edit your account information by filling the necessary fields below.',
     link: '/welcome',
     buttonText: 'SAVE CHANGES'
+  });
+}
+
+module.exports.filteredEvents = function(req, res){
+  var requestOptions, path;
+  path = '/api/events/filter';
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "POST",
+    form: req.body
+  };
+   request(
+    requestOptions,
+    function(err, response, body) {
+      renderFilteredEvents(err, req, res, body);
+    }
+  );
+}
+
+var renderFilteredEvents = function(err, req, res, responseBody){
+  var msg;
+  if (!(JSON.parse(responseBody) instanceof Array)){
+    msg = "API lookup error" + responseBody;
+    responseBody = [];
+  } else{
+    if (!JSON.parse(responseBody).length){
+      console.log('No events with matching filter');
+      msg = "No events with matching filter(s) found.";
+    }
+  }
+  res.render('events', {
+    title: 'Filtered Events',
+    eventsList: JSON.parse(responseBody),
+    link: '/event',
+    msg: msg
   });
 }
