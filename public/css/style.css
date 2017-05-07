@@ -57,15 +57,6 @@ img {
 	padding: 10px 0 10px 0;
 }
 
-.btn {
-    font-weight: 700;
-    height: 36px;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: default;
-}
-
 /*
  * Card component
  */
@@ -255,6 +246,7 @@ img {
 }
 .btn:hover{
 	background-color: rgb(17, 145, 173);
+    color: white;
 }
 
 .btn-info, .btn-info:hover{
@@ -291,4 +283,9 @@ img {
 .forgot-password:focus{
     color: rgb(17, 145, 173);
 	text-decoration: none;
+}
+
+.input-group .bootstrap-tagsinput {
+    width: 100%;
+    margin-bottom: 1px;
 }
