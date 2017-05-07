@@ -22,6 +22,7 @@ router.get('/event/posted', ctrlMain.eventPosted);	// event posted successfully!
 router.get('/events', ctrlMain.events);			        // view a list of events
 router.get('/events/finder', ctrlMain.eventFinder);	// find event menu
 router.get('/events/search', ctrlMain.searchEvents);// search for events by keywords/tags
+router.post('/events/searched', ctrlMain.eventsSearched);
 router.get('/events/filter', ctrlMain.filterEvents);// checkboxes for filtering through events
 router.get('/events/liked', ctrlMain.likedEvents);	// show list of user's liked events
 router.get('/events/my', ctrlMain.myEvents);		    // show list of user's event posts/drafts
