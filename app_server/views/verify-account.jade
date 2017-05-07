@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .container
+    .card.card-container
+      a(href='/welcome')
+        img(src='/img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card #{title}
+      .savedView
+        h2 Thank you for joining!
+        p
+        h4
+          | #{message}
+      a.btn.btn-info(href='/', role='button') LOG IN
+      br
