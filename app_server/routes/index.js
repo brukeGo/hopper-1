@@ -28,5 +28,7 @@ router.get('/events/my', ctrlMain.myEvents);		    // show list of user's event p
 router.get('/recover', ctrlMain.recover);		        // recover passwords
 router.get('/register', ctrlMain.register);		      // register for account
 router.get('/account', ctrlMain.account); 		      // user menu
+router.get('/account/edit', ctrlMain.editAccount);  // edit account info
+router.get('/verify', ctrlMain.verify);             // verify e-mail
 
 module.exports = router;
