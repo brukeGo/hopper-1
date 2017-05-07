@@ -9,7 +9,7 @@ block content
       .account
         h5
           | Please enter your information in the fields below. You will recieve a verification email to confirm your account.
-      form.form-signin(action='/')
+      form.form-signin(action='/verify')
         span#reauth-email.reauth-email
         input#inputFirstName.form-control(type='text', placeholder='First Name', required='', autofocus='')
         input#inputLastName.form-control(type='text', placeholder='Last Name', required='')
