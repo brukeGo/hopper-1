@@ -37,15 +37,60 @@ module.exports.mainMenu = function (req, res) {
 
 /* Controller for viewing a posted event */
 module.exports.event = function(req, res) {
-  res.render('event', 
-  { event: 
-    { title: 'Movie Night',
-      date:'04/23/2017',
-      time: '5:30 PM',
-      location:'USU Ballroom 1', 
-      description:'Come enjoy classic films while meeting new people who share your interests. Free snacks.'
+  var requestOptions, path;
+  path = '/api/events/' + req.params.eventid;
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "GET",
+    json: {},
+    qs: {}
+  };
+  request(
+    requestOptions,
+    function(err, response, body) {
+      console.log(body);
+
+      //TODO: FIX THE DATE AND TIME
+
+      console.log("START: " + body.start);
+      
+      var end = new Date(body.end);
+      var event = {
+        title: body.title,
+        location: body.location,
+        description: body.description,
+        tags: body.tags,
+        filters: body.filters,
+        startDate: convertDate(body.start),
+        startTime: convertTime(body.start),
+        endDate: convertDate(body.end),
+        endTime: convertTime(body.start)
+      }
+      res.render('event', { 
+          event: event
+      });
     }
-  });
+  )
+  
+}
+
+var convertDate = function(mongoDate) {
+  var time = new Date(mongoDate);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = time.getFullYear();
+  var month = months[time.getMonth()];
+  var date = time.getDate();
+
+  return month + "/" + date + "/" + year;
+}
+
+var convertTime = function(mongoDate) {
+  var time = new Date(mongoDate);
+  var hour = time.getHours();
+  var min = time.getMinutes();
+  var sec = time.getSeconds();
+
+  return hour + ":" + min + " " + ((hour >= 12) ? "PM" : "AM");
 }
 
 /* Controller for creating an event */
