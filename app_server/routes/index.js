@@ -17,7 +17,7 @@ router.get('/event', ctrlMain.event); 			        // view a event
 router.get('/event/new', ctrlMain.createEvent);		  // create an event
 router.get('/event/edit', ctrlMain.editEvent);		  // edit an event
 router.get('/event/draft', ctrlMain.eventDraft);	  // view an event draft
-router.get('/event/saved', ctrlMain.eventSaved);	  // event saved successfully! page
+router.post('/event/saved', ctrlMain.eventSaved);	  // event saved successfully! page
 router.get('/event/posted', ctrlMain.eventPosted);	// event posted successfully! page
 router.get('/events', ctrlMain.events);			        // view a list of events
 router.get('/events/finder', ctrlMain.eventFinder);	// find event menu
