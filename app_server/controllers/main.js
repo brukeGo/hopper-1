@@ -202,16 +202,16 @@ module.exports.eventsSearched = function(req, res) {
 }
 
 var renderSearchedPage = function(err, req, res, responseBody) {
-  var message;
+  var msg;
 
   console.log(Array.isArray(JSON.parse(responseBody)));
 
   if(!Array.isArray(JSON.parse(responseBody))) {
-    message = "API lookup error" + responseBody;
+    msg = "API lookup error" + responseBody;
     responseBody = [];
   } else {
-      if(!responseBody.length) {
-        message = "No events found";
+      if(!JSON.parse(responseBody).length) {
+        msg = "No events found";
       }
   }
 
@@ -219,7 +219,7 @@ var renderSearchedPage = function(err, req, res, responseBody) {
       title: 'Searched Events',
       eventsList: JSON.parse(responseBody),
       link: "/event",
-      message: message
+      msg: msg
   });
 }
 
