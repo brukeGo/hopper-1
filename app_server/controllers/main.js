@@ -15,6 +15,16 @@
         - { title: 'Hopper' }: JavaScript object containing data for template
 */
 
+var request = require('request');
+
+var apiOptions = {
+  server: "http://localhost:3000"
+};
+
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = "eventhopper.herokuapp.com";
+}
+
 /* Controller for login/landing page */
 module.exports.login = function(req, res) {
   res.render('login', { title: 'Event Hopper' });
@@ -88,6 +98,46 @@ module.exports.eventPosted = function (req, res) {
 
 /* Controller for viewing a list of events */
 module.exports.events = function(req, res) {
+  var requestOptions, path;
+
+  path = '/api/events';
+
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "GET",
+    json: {},
+    qs: {}
+  };
+
+  request(
+    requestOptions,
+    function(err, response, body) {
+      renderEventsPage(err, req, res, body);
+    }
+  );
+}
+
+var renderEventsPage = function(err, req, res, responseBody) {
+  var message;
+  console.log(responseBody);
+  if(!(responseBody instanceof Array)) {
+    message = "API lookup error" + responseBody;
+    responseBody = [];
+  } else {
+      if(!responseBody.length) {
+        message = "No events found";
+      }
+  }
+
+  res.render('events', {
+      title: 'All Events',
+      eventsList: responseBody,
+      link: "/event",
+      message: message
+  });
+}
+
+/*module.exports.events = function(req, res) {
   res.render('events',
     { title: 'All Events',
       eventsList: [ { title:'Movie Night'}, 
@@ -98,7 +148,7 @@ module.exports.events = function(req, res) {
                     { title: 'SWE Bonfire'}],
       link: "/event"
     });
-}
+}*/
 
 /* Controller for viewing the find event menu */
 module.exports.eventFinder = function(req, res) {
