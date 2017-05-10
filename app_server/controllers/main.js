@@ -54,39 +54,33 @@ module.exports.event = function(req, res) {
         console.log(error);
         return;
       }
-
-      if(!(body instanceof Array)) {
-        msg = "API lookup error";
-        res.render('event-not-found', { 
-            msg: msg,
-            detail: "event not found"
-        });
-      } else {
-          if(!body.length) {
-            res.render('event-not-found', { 
-                msg: "event not found"
-            }); 
-          }
-      }
-      //TODO: FIX THE DATE AND TIME
-
-      console.log("START: " + body.start);
       
-      var end = new Date(body.end);
-      var event = {
-        title: body.title,
-        location: body.location,
-        description: body.description,
-        tags: body.tags,
-        filters: body.filters,
-        startDate: convertDate(body.start),
-        startTime: convertTime(body.start),
-        endDate: convertDate(body.end),
-        endTime: convertTime(body.start)
+      if(body.msg === "eventid not found") {
+        res.render('event-not-found', { 
+            msg: "event not found"
+        }); 
+      } else {
+        //TODO: FIX THE DATE AND TIME
+
+        console.log("START: " + body.start);
+        
+        var end = new Date(body.end);
+        var event = {
+          title: body.title,
+          location: body.location,
+          description: body.description,
+          tags: body.tags,
+          filters: body.filters,
+          startDate: convertDate(body.start),
+          startTime: convertTime(body.start),
+          endDate: convertDate(body.end),
+          endTime: convertTime(body.start)
+        }
+        res.render('event', { 
+            event: event
+        });
       }
-      res.render('event', { 
-          event: event
-      });
+      
     }
   )
   
