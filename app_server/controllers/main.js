@@ -399,3 +399,14 @@ var renderFilteredEvents = function(err, req, res, responseBody){
     msg: msg
   });
 }
+
+/* Controller to list features */
+module.exports.features = function(req, res) {
+  res.render('features', {
+    features: [
+      "Find an event: by filter, title, description, or tags",
+      "Post an event",
+      "RESTful API: create event, read a event, delete event, read all events, search by filters, search by keywords, search by tags"
+    ]
+  });
+}
