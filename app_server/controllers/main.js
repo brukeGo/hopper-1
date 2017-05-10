@@ -81,7 +81,7 @@ var convertDate = function(mongoDate) {
   var month = months[time.getMonth()];
   var date = time.getDate();
 
-  return month + "/" + date + "/" + year;
+  return month + " " + date + ", " + year;
 }
 
 var convertTime = function(mongoDate) {
@@ -90,7 +90,13 @@ var convertTime = function(mongoDate) {
   var min = time.getMinutes();
   var sec = time.getSeconds();
 
-  return hour + ":" + min + " " + ((hour >= 12) ? "PM" : "AM");
+  var hourDisplayed = hour;
+  
+  if(hour > 12) {
+    hourDisplayed = hour % 12;
+  }
+
+  return hourDisplayed + ":" + min + " " + ((hour >= 12) ? "PM" : "AM");
 }
 
 /* Controller for creating an event */

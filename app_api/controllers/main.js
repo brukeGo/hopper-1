@@ -166,7 +166,27 @@ module.exports.updateEvent = function (req, res) {
 
 /* This controller SHOULD delete an event document from database. */
 module.exports.deleteEvent = function (req, res) {
-  sendResponse(res, 200, {"status": "success"});
+  var eventid = req.params.eventid;
+  if(eventid) {
+    Event
+    .findByIdAndRemove(eventid)
+    .exec(
+      function(err, event) {
+        if(err) {
+          // Respond with failure
+          sendResponse(res, 404, err);
+          return;
+        }
+        // Respond with success
+        sendResponse(res, 204, null);
+      }
+    )
+  } else {
+      // Respond with failure
+      sendResponse(res, 404, {
+        "message": "No eventid provided"
+      });
+  }
 }
 
 /* Sends a HTTP status code and data in JSON format.*/
