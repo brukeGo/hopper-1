@@ -53,10 +53,7 @@ module.exports.searchEventsList = function (req, res) {
   console.log(JSON.toString(regexArray));
 
   Event.find( { $or: [ { tags: { $in: keys } }, { description: { $in: regexArray } }, { title: { $in: regexArray } } ] }, function (err, events){
-    if(events.length === 0) {
-      sendResponse(res, 201, { msg:'No events match your search' });
-      return; 
-    } else if(err) {
+    if(err) {
       // Error trap: If Mongoose returns an error, send 404 and exit
         sendResponse(res, 404, err);
         return;
