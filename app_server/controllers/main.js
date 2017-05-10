@@ -50,6 +50,24 @@ module.exports.event = function(req, res) {
     function(err, response, body) {
       console.log(body);
 
+      if(err) {
+        console.log(error);
+        return;
+      }
+
+      if(!(body instanceof Array)) {
+        msg = "API lookup error";
+        res.render('event-not-found', { 
+            msg: msg,
+            detail: "event not found"
+        });
+      } else {
+          if(!body.length) {
+            res.render('event-not-found', { 
+                msg: "event not found"
+            }); 
+          }
+      }
       //TODO: FIX THE DATE AND TIME
 
       console.log("START: " + body.start);
