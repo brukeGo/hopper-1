@@ -91,12 +91,12 @@ var convertTime = function(mongoDate) {
   var sec = time.getSeconds();
 
   var hourDisplayed = hour;
-  
+
   if(hour > 12) {
     hourDisplayed = hour % 12;
   }
 
-  return hourDisplayed + ":" + min + " " + ((hour >= 12) ? "PM" : "AM");
+  return hourDisplayed + ":" + ((min < 10) ? "00" : min) + " " + ((hour >= 12) ? "PM" : "AM");
 }
 
 /* Controller for creating an event */
