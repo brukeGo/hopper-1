@@ -14,11 +14,11 @@ var ctrlMain = require('../controllers/main');
 router.get('/', ctrlMain.login); 			              // log in page
 router.get('/welcome', ctrlMain.mainMenu);		      // welcome/event menu
 router.get('/event/new', ctrlMain.createEvent);		  // create an event
-router.get('/event/:eventid', ctrlMain.event); 			// view a event
 router.get('/event/edit', ctrlMain.editEvent);		  // edit an event
 router.get('/event/draft', ctrlMain.eventDraft);	  // view an event draft
 router.post('/event/saved', ctrlMain.eventSaved);	  // event saved successfully! page
 router.get('/event/posted', ctrlMain.eventPosted);	// event posted successfully! page
+router.get('/event/:eventid', ctrlMain.event); 			// view a event
 router.get('/events', ctrlMain.events);			        // view a list of events
 router.get('/events/finder', ctrlMain.eventFinder);	// find event menu
 router.get('/events/search', ctrlMain.searchEvents);// search for events by keywords/tags
