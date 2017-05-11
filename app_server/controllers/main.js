@@ -60,8 +60,6 @@ module.exports.event = function(req, res) {
             msg: "event not found"
         }); 
       } else {
-        //TODO: FIX THE DATE AND TIME
-
         console.log("START: " + body.start);
         
         var end = new Date(body.end);
@@ -86,6 +84,7 @@ module.exports.event = function(req, res) {
   
 }
 
+/* Formats date from API */
 var convertDate = function(mongoDate) {
   var time = new Date(mongoDate);
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -96,6 +95,7 @@ var convertDate = function(mongoDate) {
   return month + " " + date + ", " + year;
 }
 
+/* Formats time from API */
 var convertTime = function(mongoDate) {
   var time = new Date(mongoDate);
   var hour = time.getHours();
@@ -143,7 +143,7 @@ module.exports.eventDraft = function (req, res) {
   });
 }
 
-/* Controller for viewing the "Event saved successfully" page */
+/* API call which POSTs an event to the database. */
 module.exports.eventSaved = function (req, res) {
   var requestOptions, path;
 
@@ -163,6 +163,7 @@ module.exports.eventSaved = function (req, res) {
   );
 }
 
+/* Renders the 'Event Saved Successfully' page */
 var renderSavedPage = function(err, req, res, resBody) {
   console.log("Posted!: " + req);
   //TODO: Catch errors
@@ -180,7 +181,7 @@ module.exports.eventPosted = function (req, res) {
    });
 }
 
-/* Controller for viewing a list of events */
+/* Makes an API call to fetch all events */
 module.exports.events = function(req, res) {
   var requestOptions, path;
 
@@ -201,6 +202,7 @@ module.exports.events = function(req, res) {
   );
 }
 
+/* Renders event list with all events fetched from API */
 var renderEventsPage = function(err, req, res, responseBody) {
   var message;
   console.log(responseBody);
@@ -231,7 +233,7 @@ module.exports.searchEvents = function(req, res) {
   res.render('search-events', {title: 'Keyword Search'});
 }
 
-/* Controller to make api call to search for events with keywords inputted */
+/* Makes API call to search for events with keywords inputted */
 module.exports.eventsSearched = function(req, res) {
   var requestOptions, path;
 
@@ -256,6 +258,7 @@ module.exports.eventsSearched = function(req, res) {
   );
 }
 
+/* Renders event list page with events with matching tags fetched from API */
 var renderSearchedPage = function(err, req, res, responseBody) {
   var msg;
 
@@ -289,7 +292,7 @@ module.exports.filterEvents = function(req, res) {
   });
 }
 
-/* Controller for viewing event posts/drafts made by the user */
+/* TO DO: Controller for viewing event posts/drafts made by the user */
 module.exports.myEvents = function(req, res) {
   res.render('events', { 
     title: 'My Events',
@@ -301,7 +304,7 @@ module.exports.myEvents = function(req, res) {
   });
 }
 
-/* Controller for updating an event post/draft */
+/* TO DO: Controller for updating an event post/draft */
 module.exports.editEvent = function(req, res) {
   res.render('event-form', { 
     title: 'Edit Event',
@@ -309,7 +312,7 @@ module.exports.editEvent = function(req, res) {
   });
 }
 
-/* Controller for viewing events liked by the user */
+/* TO DO: Controller for viewing events liked by the user */
 module.exports.likedEvents = function(req, res) {
   res.render('events', { 
     title: 'Liked Events',
@@ -321,7 +324,7 @@ module.exports.likedEvents = function(req, res) {
   });
 }
 
-/* Controller for registering for an account*/
+/* TO DO: Controller for registering for an account*/
 module.exports.register = function(req, res) {
   res.render('register', {
     title: 'Create Account',
@@ -331,7 +334,7 @@ module.exports.register = function(req, res) {
   });
 }
 
-/* Controller for recovering a user password*/
+/* TO DO: Controller for recovering a user password*/
 module.exports.recover = function(req, res) {
   res.render('recover', {title: 'Recover'});
 }
@@ -341,7 +344,7 @@ module.exports.account = function(req, res) {
   res.render('user-menu', {title: 'User Menu'});
 }
 
-/*Controller for viewing the 'Verify E-mail Address' page. */
+/* TO DO: Controller for viewing the 'Verify E-mail Address' page. */
 module.exports.verify = function(req, res){
   res.render('verify-account', {
     title: 'Verify E-mail',
@@ -349,7 +352,7 @@ module.exports.verify = function(req, res){
   });
 }
 
-/* Controller for editing account. */
+/* TO DO: Controller for editing account. */
 module.exports.editAccount = function(req, res){
   res.render('register', {
     title: 'Edit Account',
@@ -359,6 +362,7 @@ module.exports.editAccount = function(req, res){
   });
 }
 
+/* Makes an API call to fetch events based on chosen filters. */
 module.exports.filteredEvents = function(req, res){
   var requestOptions, path;
   path = '/api/events/filter';
@@ -375,6 +379,7 @@ module.exports.filteredEvents = function(req, res){
   );
 }
 
+/* Renders event list with events with matching filters fetched from API */
 var renderFilteredEvents = function(err, req, res, responseBody){
   var msg;
   if (!(JSON.parse(responseBody) instanceof Array)){
