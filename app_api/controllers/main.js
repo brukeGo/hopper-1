@@ -36,7 +36,7 @@ module.exports.filteredEventsList = function (req, res) {
   });
 }
 
-/* This controller SHOULD return a list of events based on searched input */
+/* This controller returns a list of events based on searched input */
 module.exports.searchEventsList = function (req, res) {
   var keys = req.body.tags.split(",");
 
@@ -63,7 +63,7 @@ module.exports.searchEventsList = function (req, res) {
   });
 }
 
-/* This controller SHOULD return a list of events based on comma separated tags. */
+/* This controller returns a list of events based on comma separated tags. */
 module.exports.taggedEventsList = function (req, res) {
 
   var tags = req.body.tags.split(",");
@@ -84,7 +84,7 @@ module.exports.taggedEventsList = function (req, res) {
   });
 }
 
-/* This controller SHOULD return a list of all events. */
+/* This controller returns a list of all events. */
 module.exports.eventsList = function (req, res) {
   Event.find({}, 
     function(err, events) {
@@ -156,12 +156,12 @@ module.exports.readEvent = function (req, res) {
   }
 }
 
-/* This controller SHOULD update an event's information in the database. */
+/* TO-DO: This controller SHOULD update an event's information in the database. */
 module.exports.updateEvent = function (req, res) {
   sendResponse(res, 200, {"status": "success"});
 }
 
-/* This controller SHOULD delete an event document from database. */
+/* This controller deletes an event document from database. */
 module.exports.deleteEvent = function (req, res) {
   var eventid = req.params.eventid;
   if(eventid) {
