@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .container
+    .card.card-container
+      .menu
+        a.pull-right(href='/account')
+          span.glyphicon.glyphicon-menu-hamburger
+      img(src='img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card #{title}
+      .welcome
+        a.btn.btn-info(href='/events/finder', role='button') FIND EVENT
+        br
+        a.btn.btn-info(href='/event/new', role='button') CREATE EVENT
+        br
+        a.btn.btn-info(href='/', role='button') SIGN OUT
+        br

@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  .container
+    .card.card-container
+      p#profile-name.profile-name-card Features
+      br
+      .all
+        .list-group.list-group-root.well
+          .list-group-item.list-group-item-info
+            strong Find an Event by:
+          .list-group
+            .list-group-item filter
+            .list-group-item title
+            .list-group-item description
+            .list-group-item tags
+          .list-group-item.list-group-item-info
+            strong Post an event
+          .list-group-item.list-group-item-info
+            strong View an Event
+          .list-group-item.list-group-item-info
+            strong View all Events
+        .list-group.list-group-root.well
+          .list-group-item
+            strong RESTful API:
+          .list-group
+            .list-group-item create an event
+            .list-group-item read an event
+            .list-group-item.list-group-item-success delete an event
+            .list-group-item read all events
+            .list-group-item search by filters
+            .list-group-item search by keywords
+            .list-group-item search by tags
+
+      a(href='/')
+        img(src='/img/bunny.png', alt='logo-home', width='100%', height='100%')

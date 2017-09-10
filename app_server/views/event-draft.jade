@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .container
+    .card.card-container
+      p#profile-name.profile-name-card #{event.title}
+      .viewDraft
+        img(src='/img/movie-flyer.jpg', alt='flyer', width='100%', height='100%')
+        p
+        h4 DATE:
+        h5  #{event.date}
+        br
+        h4 TIME:
+        h5  #{event.time}
+        br
+        h4 LOCATION:
+        h5  #{event.location}
+        br
+        h5
+          | #{event.description}
+        br
+        p
+
+      a.btn.btn-info(href='/event/edit', role='button') EDIT EVENT
+      br
+      a.btn.btn-info(href='/event/posted', role='button') POST EVENT
+      br
+      a.btn.btn-info(href='/event/edit', role='button') DELETE EVENT
+      br

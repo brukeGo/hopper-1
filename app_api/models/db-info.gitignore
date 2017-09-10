@@ -1,0 +1,33 @@
+db URI:         mongodb://heroku_9tj01b1q:8p75vfvpuvsm9eog0eua2hdklq@ds125481.mlab.com:25481/heroku_9tj01b1q
+
+Breakdown of db URI
+    db usr:     heroku_9tj01b1q
+    db pw:      8p75vfvpuvsm9eog0eua2hdklq
+    host:       ds125481.mlab.com
+    port:       25481
+    db name:    heroku_9tj01b1q
+
+Create a folder to dump your mongo db (in GitBash):
+    mkdir -p ~/tmp/mongodump
+
+Mongo Dump command:
+This command dumps your db data to the specified directory. 
+    mongodump -h localhost:27017 -d hopper -o ~/tmp/mongodump
+
+Mongo Restore command:
+This command pushes up the data to your live db. The command expects the following parameters:
+    
+    -h: Live host and port
+    -d: Live database name
+    -u: Username for the live database
+    -p: Password for the live database
+
+    mongorestore -h ds125481.mlab.com:25481 -d heroku_9tj01b1q -u heroku_9tj01b1q -p 8p75vfvpuvsm9eog0eua2hdklq ~/tmp/mongodump/hopper
+
+Connect to live db from mongo shell:
+This command follows the format of mongo hostname:port/database_name -u username -p password
+
+    mongo ds125481.mlab.com:25481/heroku_9tj01b1q -u heroku_9tj01b1q -p 8p75vfvpuvsm9eog0eua2hdklq
+
+Drop All Documents from Event Collection
+    db.events.remove({});
