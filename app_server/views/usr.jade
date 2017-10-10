@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .container
+    .row
+      .card.col-xs-12.col-md-10.col-centered.top-margin
+        a(href='/welcome')
+          img.logo(src='/img/bunny.png', alt='logo', width='30px', height='30px')
+        p#profile-name.profile-name-card #{title}
+        .savedView
+          br
+          p Check out the gifs below to learn how to use our app.
+          br
+          h2 Finding Events
+          p
+          h4
+            | By Category
+          img(src="/img/category.gif")
+          br
+          h4
+            | By Keywords
+          img(src="/img/keyword.gif")
+        a.btn.btn-info.button(href='/account', role='button') USER MENU
+        br
+        a.btn.btn-info.button(href='/', role='button') SIGN OUT
+        br

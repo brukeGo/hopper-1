@@ -35,6 +35,16 @@ module.exports.mainMenu = function (req, res) {
   res.render('main-menu', { title: 'Welcome' });
 }
 
+/* Controller for the user manual */
+module.exports.user = function (req, res) {
+  res.render('usr', { title: 'User Manual' });
+}
+
+/* Controller for the dev manual */
+module.exports.dev = function (req, res) {
+  res.render('dev', { title: 'Developer Manual' });
+}
+
 /* Controller for viewing a posted event */
 module.exports.event = function(req, res) {
   var requestOptions, path;
