@@ -75,6 +75,24 @@ img {
     box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.3);
 }
 
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.top-margin {
+    margin-top: 30px;
+}
+
+.logo {
+    height: 90px;
+    width: 90px;
+}
+
+.button {
+    width: 50%;
+}
+
 .profile-img-card {
     width: 96px;
     height: 96px;

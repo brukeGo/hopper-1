@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container
+    .row
+      .card.col-xs-12.col-md-10.col-centered.top-margin
+        a(href='/welcome')
+          img.logo(src='/img/bunny.png', alt='logo', width='30px', height='30px')
+        p#profile-name.profile-name-card #{title}
+        .savedView
+          br
+          p This manual offers docs to programmers who want to begin working with our team.
+          br
+          h2 Technologies
+          p
+          h4
+            | MongoDB, Express, AngularJS, Node.js
+        a.btn.btn-info.button(href='/account', role='button') USER MENU
+        br
+        a.btn.btn-info.button(href='/', role='button') SIGN OUT
+        br

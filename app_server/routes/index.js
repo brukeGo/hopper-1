@@ -12,6 +12,8 @@ var router = express.Router();
 var ctrlMain = require('../controllers/main');
 
 router.get('/', ctrlMain.login); 			                    // log in page
+router.get('/usr', ctrlMain.user); 			                  // user manual
+router.get('/dev', ctrlMain.dev); 			                  // dev manual
 router.get('/welcome', ctrlMain.mainMenu);		            // welcome/event menu
 router.get('/event/new', ctrlMain.createEvent);		        // create an event
 router.get('/event/edit', ctrlMain.editEvent);		        // edit an event
