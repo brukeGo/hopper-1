@@ -7,7 +7,7 @@ block content
       p#profile-name.profile-name-card #{title}
       form.form-signin(action='/welcome')
         span#reauth-email.reauth-email
-        input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+        input#inputEmail.form-control(type='email', placeholder='Email address', pattern='.+csulb.edu', required='', autofocus='')
         input#inputPassword.form-control(type='password', placeholder='Password', required='')
         #remember.checkbox
           label
