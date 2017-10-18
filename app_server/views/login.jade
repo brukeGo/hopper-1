@@ -5,10 +5,10 @@ block content
     .card.card-container
       img(src='img/bunny.png', alt='logo', width='90', height='90')
       p#profile-name.profile-name-card #{title}
-      form.form-signin(action='/welcome')
+      form.form-signin(action='#{link}', method='post')
         span#reauth-email.reauth-email
-        input#inputEmail.form-control(type='email', placeholder='Email address', pattern='.+csulb.edu', required='', autofocus='')
-        input#inputPassword.form-control(type='password', placeholder='Password', required='')
+        input#inputEmail.form-control(type='email', placeholder='Email address', pattern='.+csulb.edu', name='email', required='', autofocus='')
+        input#inputPassword.form-control(type='password', placeholder='Password', name='password', required='')
         #remember.checkbox
           label
             input(type='checkbox', value='remember-me')

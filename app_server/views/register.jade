@@ -9,10 +9,10 @@ block content
       .account
         h5
           | #{message}
-      form.form-signin(action='#{link}')
+      form.form-signin(action='#{link}', method='post')
         span#reauth-email.reauth-email
-        input#inputFirstName.form-control(type='text', placeholder='First Name', required='', autofocus='')
-        input#inputLastName.form-control(type='text', placeholder='Last Name', required='')
-        input#inputEmail.form-control(type='email', placeholder='Email address', pattern='.+csulb.edu', required='')
-        input#inputPassword.form-control(type='password', placeholder='Password', required='')
+        input#inputFirstName.form-control(type='text', placeholder='First Name', name='firstName', required='', autofocus='')
+        input#inputLastName.form-control(type='text', placeholder='Last Name', name='lastName', required='')
+        input#inputEmail.form-control(type='email', placeholder='Email address', pattern='.+csulb.edu', name='email', required='')
+        input#inputPassword.form-control(type='password', placeholder='Password', , name='password', required='')
         button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') #{buttonText}

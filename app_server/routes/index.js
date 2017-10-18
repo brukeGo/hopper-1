@@ -12,9 +12,7 @@ var router = express.Router();
 var ctrlMain = require('../controllers/main');
 
 router.get('/', ctrlMain.login); 			                    // log in page
-router.get('/usr', ctrlMain.user); 			                  // user manual
-router.get('/dev', ctrlMain.dev); 			                  // dev manual
-router.get('/welcome', ctrlMain.mainMenu);		            // welcome/event menu
+router.post('/welcome', ctrlMain.doLogin);		              // logs in user and renders welcome/event menu
 router.get('/event/new', ctrlMain.createEvent);		        // create an event
 router.get('/event/edit', ctrlMain.editEvent);		        // edit an event
 router.get('/event/draft', ctrlMain.eventDraft);	        // view an event draft
@@ -29,11 +27,14 @@ router.get('/events/filter', ctrlMain.filterEvents);      // checkboxes for filt
 router.get('/events/liked', ctrlMain.likedEvents);	      // show list of user's liked events
 router.get('/events/my', ctrlMain.myEvents);		          // show list of user's event posts/drafts
 router.get('/recover', ctrlMain.recover);		              // recover passwords
-router.get('/register', ctrlMain.register);		            // register for account
+router.get('/register', ctrlMain.register);		            // registration page
+router.post('/verify', ctrlMain.doRegister);			        //do the registration and show verification page
 router.get('/account', ctrlMain.account); 		            // user menu
 router.get('/account/edit', ctrlMain.editAccount);        // edit account info
-router.get('/verify', ctrlMain.verify);                   // verify e-mail
 router.post('/events/filtered', ctrlMain.filteredEvents); //view a list of filtered events
 router.get('/features', ctrlMain.features);               // List of features
+
+router.get('/usr', ctrlMain.user); 			                  // user manual
+router.get('/dev', ctrlMain.dev); 			                  // dev manual
 
 module.exports = router;

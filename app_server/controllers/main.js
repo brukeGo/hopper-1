@@ -25,13 +25,33 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = "http://eventhopper.herokuapp.com";
 }
 
-/* Controller for login/landing page */
+/* Controller to render login/landing page */
 module.exports.login = function(req, res) {
-  res.render('login', { title: 'Event Hopper' });
+  res.render('login', { title: 'Event Hopper',
+    link:'/welcome' });
 }
 
-/* Controller for the welcome/event menu */
-module.exports.mainMenu = function (req, res) {
+/* Controller to log in user */
+module.exports.doLogin = function(req, res){
+  var requestOptions, path;
+  
+    path = '/api/login';
+  
+    requestOptions = {
+      url: apiOptions.server + path,
+      method: "POST",
+      form: req.body
+    };
+    request(
+      requestOptions,
+      function(err, response, body) {
+        renderMainMenu(err, req, res, body);
+      }
+    );
+}
+
+/* Renders the welcome/event menu page */
+var renderMainMenu = function (err, req, res, body) {
   res.render('main-menu', { title: 'Welcome' });
 }
 
@@ -334,13 +354,41 @@ module.exports.likedEvents = function(req, res) {
   });
 }
 
-/* TO DO: Controller for registering for an account*/
+/* Controller rendering registration page */
 module.exports.register = function(req, res) {
   res.render('register', {
     title: 'Create Account',
     message: 'Please enter your information in the fields below. You will recieve a verification email to confirm your account.',
     link: '/verify',
-    buttonText: 'SEND EMAIL'
+    buttonText: 'SIGN UP'
+  });
+}
+
+/*Controller for registering for an account*/
+module.exports.doRegister = function(req, res){
+  var requestOptions, path;
+  
+    path = '/api/register';
+  
+    requestOptions = {
+      url: apiOptions.server + path,
+      method: "POST",
+      form: req.body
+    };
+    request(
+      requestOptions,
+      function(err, response, body) {
+        verify(err, req, res, body);
+      }
+    );
+}
+
+/* Renders the 'Verify E-mail Address' page. */
+var verify = function(err, req, res, resBody) {
+  console.log("Posted!: " + req);
+  res.render('verify-account', {
+    title: 'Verify E-mail',
+    message: 'A verification message was sent to your e-mail address. Please verify your e-mail and you will be able to log in to your new account.'
   });
 }
 
@@ -352,14 +400,6 @@ module.exports.recover = function(req, res) {
 /* Controller for the user menu*/
 module.exports.account = function(req, res) {
   res.render('user-menu', {title: 'User Menu'});
-}
-
-/* TO DO: Controller for viewing the 'Verify E-mail Address' page. */
-module.exports.verify = function(req, res){
-  res.render('verify-account', {
-    title: 'Verify E-mail',
-    message: 'A verification message was sent to your e-mail address. Please verify your e-mail and you will be able to log in to your new account.'
-  });
 }
 
 /* TO DO: Controller for editing account. */
