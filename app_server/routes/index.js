@@ -13,6 +13,7 @@ var ctrlMain = require('../controllers/main');
 
 router.get('/', ctrlMain.login); 			                    // log in page
 router.post('/welcome', ctrlMain.doLogin);		              // logs in user and renders welcome/event menu
+router.get('/welcome', ctrlMain.renderWelcome);			       //renders welcome page (after login)
 router.get('/event/new', ctrlMain.createEvent);		        // create an event
 router.get('/event/edit', ctrlMain.editEvent);		        // edit an event
 router.get('/event/draft', ctrlMain.eventDraft);	        // view an event draft
