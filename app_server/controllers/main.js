@@ -55,6 +55,11 @@ var renderMainMenu = function (err, req, res, body) {
   res.render('main-menu', { title: 'Welcome' });
 }
 
+/*Renders the welcome/event menu page (after login)*/
+module.exports.renderWelcome = function(req, res){
+  renderMainMenu (null, req, res, null);
+}
+
 /* Controller for the user manual */
 module.exports.user = function (req, res) {
   res.render('usr', { title: 'User Manual' });
