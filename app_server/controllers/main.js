@@ -388,7 +388,12 @@ module.exports.doRegister = function(req, res){
     request(
       requestOptions,
       function(err, response, body) {
-        verify(err, req, res, body);
+        if (body[2] != 't'){
+          res.redirect('/register');
+        }
+        else {
+          verify(err, req, res, body);
+        }
       }
     );
 }
