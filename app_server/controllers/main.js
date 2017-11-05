@@ -45,7 +45,12 @@ module.exports.doLogin = function(req, res){
     request(
       requestOptions,
       function(err, response, body) {
-        renderMainMenu(err, req, res, body);
+        if (body[2] != 't'){
+          res.redirect('/');
+        }
+        else {
+          renderMainMenu(err, req, res, body);
+        }
       }
     );
 }
