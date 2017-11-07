@@ -1,0 +1,59 @@
+
+block content
+  .container
+    .card.card-container
+      a(routerLink='/wellcome')
+        img(src='./assets/img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card Create Event
+      form.form-signin( #eventForm = "ngForm")
+        .event-form
+          input#title.form-control(type='text', placeholder='event name', [(ngModel)]="title", name='title', required='', autofocus='')
+          input#start.form-control(type='datetime-local', placeholder='event start', [(ngModel)]="start", name='start', required='')
+          input#end.form-control(type='datetime-local', placeholder='event end',  [(ngModel)]="end", name='end',  required='')
+          input#location.form-control(type='text', placeholder='event location',  [(ngModel)]="location", name='location', required='')
+          input#description.form-control(type='text', placeholder='event description',  [(ngModel)]="description", name='description', required='')
+          input#img.form-control(type='file', placeholder='upload image', name='img', optional='')
+          input#tags.form-control(type='text', data-role="tagsinput", placeholder='tags',[(ngModel)]="tags",  name='tags', optional='')
+          .scroll
+            ul
+              .checkbox
+                label
+                  input(type='checkbox', name="alumni", [(ngModel)]="alumni",  value='alumni')
+                  | Alumni
+              .checkbox
+                label
+                  input(type='checkbox', name='education', [(ngModel)]="education", value='education')
+                  | Education
+              .checkbox
+                label
+                  input(type='checkbox', name='free', [(ngModel)]="free", value='free')
+                  | Free
+              .checkbox
+                label
+                  input(type='checkbox', name='campusOrg', [(ngModel)]="campusOrg", value='campus org')
+                  | Campus Org
+              .checkbox
+                label
+                  input(type='checkbox', name='unaffiliated', [(ngModel)]="unaffiliated", value='unaffiliated')
+                  | Unaffiliated
+              .checkbox
+                label
+                  input(type='checkbox', name='offCampus',[(ngModel)]="offCampus", value='off campus')
+                  | Off Campus
+              .checkbox
+                label
+                  input(type='checkbox', name='onCampus', [(ngModel)]="onCampus", value='on campus')
+                  | On Campus
+              .checkbox
+                label
+                  input(type='checkbox', name='staff', [(ngModel)]="staff", value='staff')
+                  | Staff
+              .checkbox
+                label
+                  input(type='checkbox', name='students', [(ngModel)]="students", value='students')
+                  | Students
+              .checkbox
+                label
+                  input(type='checkbox', name='sports', [(ngModel)]="sports", value='sports')
+                  | Sports
+          button.btn.btn-lg.btn-primary.btn-block.btn-signin( type="button", (click)="createNewEvent()" ) CREATE EVENT

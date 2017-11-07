@@ -1,0 +1,15 @@
+block content
+.container
+  .card.card-container
+    a(routerLink='/wellcome')
+      img(src='./assets/img/bunny.png', alt='logo', width='90', height='90')
+    p#profile-name.profile-name-card {{title}}
+    .savedView
+      h2 Success!
+      p
+      h4
+        | {{message}}
+    a.btn.btn-info(routerLink ='/account', role='button') USER MENU
+    br
+    a.btn.btn-info(routerLink ='/login', role='button') SIGN OUT
+    br

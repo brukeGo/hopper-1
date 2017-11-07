@@ -1,0 +1,16 @@
+block content
+  .container
+    .card.card-container
+      a(routerLink ='/login')
+        img(src='./assets/img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card Recovery
+      .savedView
+        h2 Forgot your password?
+        p
+        h5
+          | Please enter your email in the field below. If there is an account in our records linked to that email address, we will send your password there.
+        p
+      form.form-signin(action='/')
+        span#reauth-email.reauth-email
+        input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+        button.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit') SEND EMAIL

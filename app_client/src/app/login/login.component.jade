@@ -1,0 +1,18 @@
+block content
+  .container
+    .card.card-container
+      img(src='../assets/img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card {{title}}
+      form.form-signin( #loginForm = "ngForm" )
+        span#reauth-email.reauth-email
+        input#inputEmail.form-control(  type='email', placeholder='Email address', pattern='.+csulb.edu', [(ngModel)]="loginData.email", name='email', required='', autofocus='')
+        input#inputPassword.form-control( type='password', placeholder='Password', [(ngModel)]="loginData.password", name='password', required='')
+        #remember.checkbox
+          label
+            input(type='checkbox', value='remember-me',[(ngModel)]="loginData.rememberMe", name="rememberMe")
+            |  Remember me
+        //- p(style="color:red; text-align:center") {{msg}}   
+        button.btn.btn-lg.btn-primary.btn-block.btn-signin( type="button", (click)="loginUser()" ) SIGN IN
+      a.forgot-password(routerLink='/recover') Forgot password?
+      a.forgot-password(routerLink='/register')  Sign up
+      

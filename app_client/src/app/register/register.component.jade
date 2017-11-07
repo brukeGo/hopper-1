@@ -1,0 +1,17 @@
+
+block content
+  .container
+    .card.card-container
+      a(routerLink = '/login')
+        img(src='./assets/img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card {{title}}
+      .account
+        h5
+          | {{message}}
+      form.form-signin( #registerForm="ngForm")
+        span#reauth-email.reauth-email
+        input#inputFirstName.form-control(type='text', placeholder='First Name', [(ngModel)]="userDetails.firstName", name='firstName', required='', autofocus='')
+        input#inputLastName.form-control(type='text', placeholder='Last Name', [(ngModel)]="userDetails.lastName", name='lastName', required='')
+        input#inputEmail.form-control(type='email', placeholder='Email address', [(ngModel)]="userDetails.email", pattern='.+csulb.edu', name='email', required='')
+        input#inputPassword.form-control(type='password', placeholder='Password',  [(ngModel)]="userDetails.password", name='password', required='')
+        button.btn.btn-lg.btn-primary.btn-block.btn-signin( type="button", (click)="registerUser()" ) {{buttonText}}

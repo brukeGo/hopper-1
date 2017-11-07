@@ -1,0 +1,49 @@
+
+block content
+  .container
+    .card.card-container
+      a(routerLink='/wellcome')
+        img(src='./assets/img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card {{title}}
+      form.form-check( #categoryForm="ngForm" )
+        .checkbox
+          label
+            input(type='checkbox', name="alumni", [(ngModel)]="category.alumni", value='alumni' )
+            | Alumni
+        .checkbox
+          label
+            input(type='checkbox', name='education',[(ngModel)]="category.education", value='education')
+            | Education
+        .checkbox
+          label
+            input(type='checkbox', name='free', [(ngModel)]="category.free", value='free')
+            | Free
+        .checkbox
+          label
+            input(type='checkbox', name='campusOrg',[(ngModel)]="category.campusOrg",  value='campusOrg')
+            | Campus Org
+        .checkbox
+          label
+            input(type='checkbox', name='unaffiliated',[(ngModel)]="category.unaffiliated",  value='unaffiliated')
+            | Unaffiliated
+        .checkbox
+          label
+            input(type='checkbox', name='offCampus', [(ngModel)]="category.offCampus",  value='offCampus')
+            | Off Campus
+        .checkbox
+          label
+            input(type='checkbox', name='onCampus', [(ngModel)]="category.onCampus",  value='onCampus')
+            | On Campus
+        .checkbox
+          label
+            input(type='checkbox', name='staff', [(ngModel)]="category.staff", value='staff')
+            | Staff
+        .checkbox
+          label
+            input(type='checkbox', name='students', [(ngModel)]="category.students", value='students')
+            | Students
+        .checkbox
+          label
+            input(type='checkbox', name='filters',[(ngModel)]="category.sports", value='sports')
+            | Sports
+        button.btn.btn-lg.btn-primary.btn-block.btn-signin( type="button", (click)="filterByCategories()") FIND EVENTS

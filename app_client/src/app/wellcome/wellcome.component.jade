@@ -1,0 +1,15 @@
+block content
+  .container
+    .card.card-container
+      .menu
+        a.pull-right(routerLink ='/account')
+          span.glyphicon.glyphicon-menu-hamburger
+      img(src='../assets/img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card {{title}}
+      .welcome
+        a.btn.btn-info(routerLink='/finder', role='button') FIND EVENT
+        br
+        a.btn.btn-info(routerLink='/new-event', role='button') CREATE EVENT
+        br
+        a.btn.btn-info(routerLink = '/login', role='button') SIGN OUT
+        br

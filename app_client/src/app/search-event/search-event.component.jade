@@ -1,0 +1,11 @@
+block content
+  .container
+  .card.card-container
+    a(routerLink='/wellcome')
+      img(src='./assets/img/bunny.png', alt='logo', width='90', height='90')
+    p#profile-name.profile-name-card Search Events
+    form( #searhForm = "ngForm" )
+      .input-group
+        input#tags.form-control(type='text', [(ngModel)]="tag", value="", placeholder='Search by keywords', name='tag', optional='')
+        span.input-group-btn
+          button.btn.btn-default.glyphicon.glyphicon-search(  (click)="searchByTags()" ) 
