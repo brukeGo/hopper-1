@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang="en" ng-app="HopperApp")
   head
     title EventHopper
     meta(name='viewport', content='width=device-width, initial-scale=1')
@@ -7,16 +7,16 @@ html
     link(rel='stylesheet', href='/css/style.css')
     link(rel='stylesheet', href='/css/bootstrap-tagsinput.css')
     link(rel='shortcut icon', type='image/ico', href='/img/favicon.ico')
-    link(href='https://fonts.googleapis.com/css?family=Oswald', rel='stylesheet')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(ng-href='https://fonts.googleapis.com/css?family=Oswald', rel='stylesheet')
+    script(ng-src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')
+    script(ng-src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
 
   body
     block content
     // Scripts
-    script(src='/js/jquery.min.js')
-    script(src='/js/scripts.js')
-    script(src='/js/bootstrap-tagsinput.js')
-    script(src='/js/angular.min')
-    script(scr='/js/script.js')
+    script(ng-src='/js/jquery.min.js')
+    script(ng-src='/js/scripts.js')
+    script(ng-src='/js/bootstrap-tagsinput.js')
+    script(ng-src='/js/angular.min')
+    script(ng-scr='/js/script.js')
     

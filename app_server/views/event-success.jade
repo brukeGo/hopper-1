@@ -1,17 +1,17 @@
 extends layout
 
 block content
-  .container
+  .container(ng-controller="main.js")
     .card.card-container
-      a(href='/welcome')
-        img(src='/img/bunny.png', alt='logo', width='90', height='90')
+      a(ng-href='/welcome')
+        img(ng-src='/img/bunny.png', alt='logo', width='90', height='90')
       p#profile-name.profile-name-card #{title}
       .savedView
         h2 Success!
         p
         h4
           | #{message}
-      a.btn.btn-info(href='/account', role='button') USER MENU
+      a.btn.btn-info(ng-href='/account', role='button') USER MENU
       br
-      a.btn.btn-info(href='/', role='button') SIGN OUT
+      a.btn.btn-info(ng-href='/', role='button') SIGN OUT
       br

@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  .container
+  .container(ng-controller="main.js")
     .card.card-container
-      a(href='/')
-        img(src='/img/bunny.png', alt='logo', width='90', height='90')
+      a(ng-href='/')
+        img(ng-src='/img/bunny.png', alt='logo', width='90', height='90')
       p#profile-name.profile-name-card Recovery
       .savedView
         h2 Forgot your password?
