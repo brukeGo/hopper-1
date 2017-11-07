@@ -1,11 +1,11 @@
 extends layout
 
 block content
-  .container
+  .container(ng-controller="")
     .row
       .card.col-xs-12.col-md-10.col-centered.top-margin
-        a(href='/welcome')
-          img.logo(src='/img/bunny.png', alt='logo', width='30px', height='30px')
+        a(ng-href='/welcome')
+          img.logo(ng-src='/img/bunny.png', alt='logo', width='30px', height='30px')
         p#profile-name.profile-name-card #{title}
         .savedView
           br
