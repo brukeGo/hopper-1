@@ -1,15 +1,15 @@
 extends layout
 
 block content
-  .container
+  .container(ng-controller="")
     .card.card-container
-      a(href='/welcome')
-        img(src='/img/bunny.png', alt='logo', width='90', height='90')
+      a(ng-href='/welcome')
+        img(ng-src='/img/bunny.png', alt='logo', width='90', height='90')
       p#profile-name.profile-name-card Find Event
       .welcome
-        a.btn.btn-info(href='/events/filter', role='button') BY CATEGORY
+        a.btn.btn-info(ng-href='/events/filter', role='button') BY CATEGORY
         br
-        a.btn.btn-info(href='/events/search', role='button') BY KEYWORDS
+        a.btn.btn-info(ng-href='/events/search', role='button') BY KEYWORDS
         br
-        a.btn.btn-info(href='/events', role='button') VIEW ALL
+        a.btn.btn-info(ng-href='/events', role='button') VIEW ALL
         br

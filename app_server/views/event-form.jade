@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  .container
+  .container(ng-controller="")
     .card.card-container
-      a(href='/welcome')
-        img(src='/img/bunny.png', alt='logo', width='90', height='90')
+      a(ng-href='/welcome')
+        img(ng-src='/img/bunny.png', alt='logo', width='90', height='90')
       p#profile-name.profile-name-card Create Event
       form.form-signin(action="#{link}" method="post")
         .event-form

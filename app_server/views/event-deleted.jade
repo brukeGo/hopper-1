@@ -1,15 +1,15 @@
 extends layout
 
 block content
-  .container
+  .container(ng-controller="")
     .card.card-container
-      a(href='/main-menu')
-        img(src='img/bunny.png', alt='logo', width='90', height='90')
+      a(ng-href='/main-menu')
+        img(ng-src='img/bunny.png', alt='logo', width='90', height='90')
 	    p#profile-name.profile-name-card Event Deleted
       .savedView
         h2 Deleted
         p
         h4
           | Your event has been deleted successfully.
-        a.btn.btn-info(href='/', role='button') SIGN OUT
+        a.btn.btn-info(ng-href='/', role='button') SIGN OUT
 		br
