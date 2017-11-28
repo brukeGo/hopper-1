@@ -40,7 +40,8 @@ userSchema.methods.generateJWT = function(){
   return jwt.sign({
     _id: this._id,
     email: this.email,
-    name: this.name,
+    firstName: this.firstName,
+    lastName: this.lastName,
     exp: parseInt(expiry.getTime()/1000),
   }, process.env.JWT_SECRET);
 };

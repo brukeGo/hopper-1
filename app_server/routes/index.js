@@ -38,4 +38,6 @@ router.get('/features', ctrlMain.features);               // List of features
 router.get('/usr', ctrlMain.user); 			                  // user manual
 router.get('/dev', ctrlMain.dev); 			                  // dev manual
 
+router.get('/signout', ctrlMain.signOut);                 //sign out
+
 module.exports = router;
