@@ -1,0 +1,14 @@
+
+block content
+  .container
+    .card.card-container
+      a(routerLink='/wellcome')
+        img(src='../assets/img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card Find Event
+      .welcome
+        a.btn.btn-info(routerLink='/categories', role='button') BY CATEGORY
+        br
+        a.btn.btn-info(routerLink='/search', role='button') BY KEYWORDS
+        br
+        a.btn.btn-info(routerLink='/events', role='button') VIEW ALL
+        br

@@ -1,0 +1,15 @@
+block content
+  .container
+    .card.card-container
+      a(routerLink='/wellcome')
+        img(src='./assets/img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card {{title}}
+      br
+      p {{msg}}
+      .all
+        ul.nav
+          li
+            a(href="#") Speed Dating
+          li
+            a(hred="#") SWE Bonfire
+

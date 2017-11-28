@@ -1,0 +1,15 @@
+block content
+  .container
+    .card.card-container
+      a(routerLink = '/wellcome')
+        img(src='../assets/img/bunny.png', alt='logo', width='90', height='90')
+      p#profile-name.profile-name-card Menu
+      .welcome
+        a.btn.btn-info(routerLink='/edit', role='button') ACCOUNT INFO
+        br
+        a.btn.btn-info(routerLink ='/events', role='button') MY EVENTS
+        br
+        a.btn.btn-info(routerLink='/liked', role='button') MY LIKES
+        br
+        a.btn.btn-info(routerLink='/login', role='button') SIGN OUT
+        br
