@@ -25,6 +25,8 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = "http://eventhopper.herokuapp.com";
 }
 
+var jwt_decode = require('jwt-decode');
+
 /* Controller to render login/landing page */
 module.exports.login = function(req, res) {
   res.render('login', { title: 'Event Hopper',
@@ -49,6 +51,11 @@ module.exports.doLogin = function(req, res){
           res.redirect('/');
         }
         else {
+          var end = body.indexOf("}") - 1;
+          var token = body.substring(10, end);
+          console.log("token: " +token);
+          console.log("body: " +body);
+          res.cookie('token', token, { maxAge: 900000, httpOnly: true });
           renderMainMenu(err, req, res, body);
         }
       }
@@ -57,12 +64,26 @@ module.exports.doLogin = function(req, res){
 
 /* Renders the welcome/event menu page */
 var renderMainMenu = function (err, req, res, body) {
-  res.render('main-menu', { title: 'Welcome' });
+  var t = body.substring(10, (body.indexOf("}") - 1));
+  t = jwt_decode(t);
+  var welcome = 'Welcome, ' + t.firstName;
+  res.render('main-menu', { title: welcome});
 }
 
 /*Renders the welcome/event menu page (after login)*/
 module.exports.renderWelcome = function(req, res){
-  renderMainMenu (null, req, res, null);
+  if (JSON.stringify(req.cookies) === "{}"){
+    res.redirect('/');
+  }
+  else {
+    console.log("rW req.cookies has :");
+    console.log(req.cookies);
+    var x = req.cookies.token;
+    console.log(x);
+    x = jwt_decode(x);
+    var welcome = 'Welcome, ' + x.firstName;
+    res.render('main-menu', { title: welcome});
+  }
 }
 
 /* Controller for the user manual */
@@ -474,3 +495,18 @@ module.exports.features = function(req, res) {
     ]
   });
 }
+
+/*Controller to sign out*/
+module.exports.signOut = function(req, res){
+  if (JSON.stringify(req.cookies) === "{}"){
+    res.redirect('/');
+  }
+  else{
+    res.cookie('token', '', {expires: new Date()});
+    console.log("cookies should be empty/modified etc");
+    res.redirect('/');
+  }
+  
+}
+
+//spinner0730@gmail.com, glazer31057@gmail.com
