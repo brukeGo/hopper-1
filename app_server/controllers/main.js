@@ -206,22 +206,33 @@ module.exports.eventDraft = function (req, res) {
 
 /* API call which POSTs an event to the database. */
 module.exports.eventSaved = function (req, res) {
-  var requestOptions, path;
+  if (JSON.stringify(req.cookies) === "{}"){
+    res.redirect('/');
+  }
+  else{
+    console.log("eventSaved req body");
+    console.log(req.body);
+    console.log("eventSaved req.cookies token");
+    console.log(req.cookies.token);
 
-  path = '/api/events/new';
-
-  requestOptions = {
-    url: apiOptions.server + path,
-    method: "POST",
-    form: req.body
-  };
-
-  request(
-    requestOptions,
-    function(err, response, body) {
-      renderSavedPage(err, req, res, body);
-    }
-  );
+    var requestOptions, path;
+  
+    path = '/api/events/new';
+  
+    requestOptions = {
+      url: apiOptions.server + path,
+      method: "POST",
+      headers: {Authorization: 'Bearer ' +req.cookies.token},
+      form: req.body
+    };
+  
+    request(
+      requestOptions,
+      function(err, response, body) {
+        renderSavedPage(err, req, res, body);
+      }
+    );
+  }
 }
 
 /* Renders the 'Event Saved Successfully' page */

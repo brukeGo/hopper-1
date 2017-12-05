@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Event = mongoose.model('Event');
-
+var User = mongoose.model('User');
 
 /* This controller is going to return a list of events based on chosen filters. */
 module.exports.filteredEventsList = function (req, res) {
@@ -94,35 +94,39 @@ module.exports.eventsList = function (req, res) {
 
 /* This controller takes information for an event (provided by user), and stores in a database. */
 module.exports.createEvent = function (req, res) {
-  console.log(req.body);
-  var tags = req.body.tags.split(",");
-  var filterArray = [];
-
-  if(Array.isArray(req.body.filters)) {
-    filterArray = req.body.filters;
-  } else {
-    filterArray.push(req.body.filters);
-  }
-
-  var start = new Date(req.body.start);
-  var end = new Date(req.body.end);
-  console.log("start:" + start);
-  console.log("end:" + end);
+  console.log("create event api call");
+  getPostedBy(req, res, function(req, res, userID){
+    console.log(req.body);
+    var tags = req.body.tags.split(",");
+    var filterArray = [];
   
-  Event.create({
-      title: req.body.title, 
-      start: start.toISOString(),
-      end: end.toISOString(),
-      location: req.body.location,
-      description: req.body.description,
-      tags: tags,
-      filters: filterArray
-  }, function(err, event) {
-    if(err) {
-      sendResponse(res, 400, error);
+    if(Array.isArray(req.body.filters)) {
+      filterArray = req.body.filters;
     } else {
-      sendResponse(res, 201, event);
+      filterArray.push(req.body.filters);
     }
+  
+    var start = new Date(req.body.start);
+    var end = new Date(req.body.end);
+    console.log("start:" + start);
+    console.log("end:" + end);
+    
+    Event.create({
+        title: req.body.title, 
+        postedBy: userID,
+        start: start.toISOString(),
+        end: end.toISOString(),
+        location: req.body.location,
+        description: req.body.description,
+        tags: tags,
+        filters: filterArray
+    }, function(err, event) {
+      if(err) {
+        sendResponse(res, 400, error);
+      } else {
+        sendResponse(res, 201, event);
+      }
+    });
   });
 }
 
@@ -191,3 +195,25 @@ var sendResponse = function(res, status, content) {
   res.status(status);
   res.json(content);
 }
+
+var getPostedBy = function(req, res, callback){
+  console.log("getPostedBy");
+  console.log(req.payload);
+  if (req.payload && req.payload._id){
+    console.log("payload present af");
+    User.findById(req.payload._id).exec(function(err, user){
+      if (!user){
+        sendResponse(res, 404, {"message" : "User not found"});
+        return;
+      } else if (err){
+        console.log(err);
+        sendResponse(res, 404, err);
+        return;
+      }
+      callback(req, res, user._id);
+    });
+  } else {
+    sendResponse(res, 404, {"message" : "User not found"});
+    return;
+  }
+};

@@ -9,13 +9,7 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 /* Connection messages */
-mongoose.connect(dbURI, function (err, res) {
-  if(err) {
-    console.log('ERROR connecting to: ' + dbURI + '. ' + err);
-  } else {
-    console.log('Successful connection to: ' + dbURI);
-  }
-});
+mongoose.connect(dbURI, {useMongoClient: true});
 
 /* Event Listeners */
 mongoose.connection.on('connected', function() {

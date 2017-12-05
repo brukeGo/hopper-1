@@ -2,6 +2,7 @@ var mongoose = require( 'mongoose' );
 
 var eventSchema = new mongoose.Schema({
   title: { type: String, required: true },
+  postedBy: {type: mongoose.Schema.ObjectId, ref: 'User'},
   img: { data: Buffer, contentType: String }, 
   start: { type: Date, required: true, "default": Date.now },
   end: Date,
