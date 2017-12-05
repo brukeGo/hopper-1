@@ -200,7 +200,7 @@ var getPostedBy = function(req, res, callback){
   console.log("getPostedBy");
   console.log(req.payload);
   if (req.payload && req.payload._id){
-    console.log("payload present af");
+    console.log("payload present");
     User.findById(req.payload._id).exec(function(err, user){
       if (!user){
         sendResponse(res, 404, {"message" : "User not found"});
@@ -217,3 +217,12 @@ var getPostedBy = function(req, res, callback){
     return;
   }
 };
+
+/* Searches for all events created by a specified user */
+module.exports.myEvents = function (req, res){
+  getPostedBy(req, res, function(req, res, userID){
+    Event.find({postedBy: userID}, function(err, events){
+      sendResponse(res, 200, events);
+    });
+  });
+}

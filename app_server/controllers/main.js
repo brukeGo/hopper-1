@@ -519,5 +519,3 @@ module.exports.signOut = function(req, res){
   }
   
 }
-
-//spinner0730@gmail.com, glazer31057@gmail.com

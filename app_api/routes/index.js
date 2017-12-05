@@ -18,6 +18,7 @@ router.post('/events/new', auth, ctrlMain.createEvent);
 router.get('/events/:eventid', ctrlMain.readEvent);
 router.put('/events/:eventid', ctrlMain.updateEvent);
 router.delete('/events/:eventid', ctrlMain.deleteEvent);
+router.get('/my/events', auth, ctrlMain.myEvents);
 
 router.post('/events/search', ctrlMain.searchEventsList);
 router.post('/events/tag', ctrlMain.taggedEventsList);
